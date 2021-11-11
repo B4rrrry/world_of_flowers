@@ -1,0 +1,13 @@
+// Specifications
+// mixins
+@import "./mixins";
+// mixins end
+$gara: "Cormorant Garamond", serif;
+$open: "Open Sans", sans-serif;
+.title {
+  @include title;
+}
+.text {
+  @include text;
+}
+// Specifications end

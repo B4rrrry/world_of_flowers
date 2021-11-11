@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAMA,AAAA,MAAM,AAAC,CCLL,UAAU,CAAE,MAAM,CAClB,WAAW,CAAE,MAAM,CACnB,SAAS,CAAE,IAAI,CACf,WAAW,CAAE,IAAI,CDIlB,AACD,AAAA,KAAK,AAAC,CCFJ,UAAU,CAAE,MAAM,CAClB,WAAW,CAAE,MAAM,CACnB,SAAS,CAAE,IAAI,CACf,WAAW,CAAE,IAAI,CDClB",
+    "sources": [
+        "../scss/style.scss",
+        "../scss/_mixins.scss"
+    ],
+    "names": [],
+    "file": "style.min.css"
+}
