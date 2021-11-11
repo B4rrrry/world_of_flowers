@@ -98,7 +98,7 @@ section {
   position: fixed;
   z-index: 1000;
   background-color: #fff;
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 0 1px black;
 }
 
 .header__wrap {
@@ -156,7 +156,7 @@ section {
 }
 
 .offer {
-  padding-top: 100px;
+  padding-top: 10vh;
   background-color: #fff;
 }
 
@@ -207,8 +207,8 @@ section {
 }
 
 .about {
-  padding-top: 200px;
-  padding-bottom: 100px;
+  padding-top: 15vh;
+  padding-bottom: 10vh;
 }
 
 .about__title {
@@ -268,8 +268,8 @@ section {
 }
 
 .hits {
-  padding-top: 200px;
-  padding-bottom: 60px;
+  padding-top: 15vh;
+  padding-bottom: 10vh;
 }
 
 .hits__title {
@@ -368,8 +368,8 @@ section {
 }
 
 .news {
-  padding-top: 200px;
-  padding-bottom: 60px;
+  padding-top: 15vh;
+  padding-bottom: 10vh;
 }
 
 .news__title {
