@@ -1,0 +1,28 @@
+.news {
+    padding-top: 200px;
+    padding-bottom: 60px;
+    &__title {
+      text-align: center;
+      margin-bottom: 90px;
+    }
+    &__slider {
+      margin-bottom: 110px;
+      &-img {
+        width: 310px;
+        height: 340px;
+        margin-bottom: 25px;
+      }
+      &-info {
+        display: flex;
+      }
+      &-name {
+        margin-right: auto;
+      }
+      &-price {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 30px;
+      }
+    }
+}

@@ -1,0 +1,44 @@
+.offer {
+  padding-top: 100px;
+  background-color: #fff;
+  &__info {
+    margin-top: 240px;
+    margin-right: 50px;
+  }
+  &__title {
+    width: 443px;
+    font-family: $gara;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 72px;
+    margin-bottom: 25px;
+  }
+  &__subtitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 30px;  
+    margin-bottom: 60px;
+  }
+  &__link {
+    width: 190px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #fff;
+    &:hover {
+      color:#fff;
+    }
+  }
+  &__img {
+    width: 812px;
+    height: 869px;
+  }
+}

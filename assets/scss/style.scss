@@ -1,13 +1,90 @@
 // Specifications
-// mixins
-@import "./mixins";
-// mixins end
 $gara: "Cormorant Garamond", serif;
 $open: "Open Sans", sans-serif;
+$wh: #fff;
+body {
+  color: #000;
+  font-family: $open;
+}
 .title {
-  @include title;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 54px;
+  line-height: 61px;
 }
 .text {
-  @include text;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 30px;
+}
+section,
+footer {
+  height: 100vh;
+}
+a {
+  text-decoration: none;
+  &:hover {
+    color: inherit;
+  }
+}
+section {
+  position: relative;
+  background-color: #fff;
+}
+.wrap {
+  display: flex;
+}
+.progress__list {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  &-item {
+    width: 16px;
+    height: 16px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &-active {
+      width: 20px;
+      height: 20px;
+      background-color: #000;
+    }
+  }
+  &-white {
+    .progress__list-item {
+      border: 1px solid #fff !important;
+      &-active {
+        background-color: #fff !important;
+      }
+    }
+  }
+}
+.catalog_link {
+  width: 211px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  color:#000;
+  border:1px solid black;
 }
 // Specifications end
+@import "./header";
+@import "./offer";
+@import "./about";
+@import "./hits";
+@import "./sliders";
+@import "./news";

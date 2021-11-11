@@ -1,0 +1,53 @@
+$wh: #fff;
+.header {
+  width: 100vw;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: fixed;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 0 5px black;
+  &__wrap {
+    align-items: center;
+  }
+  &__logo {
+    padding-left: 10px;
+  }
+  &-nav {
+    margin: 0 auto;
+  }
+  &__nav {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 22px;
+    display: flex;
+    color: inherit;
+    &-item {
+      margin-right: 45px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &-link {
+      color: inherit;
+    }
+  }
+  &__mobile {
+    color: inherit;
+    &-phone {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 27px;
+      margin-bottom: 2px;
+    }
+    &-req {
+      font-size: 16px;
+      line-height: 16px;
+      border-bottom: 1px dashed inherit;
+    }
+    &-link {
+      color: inherit;
+    }
+  }
+}
