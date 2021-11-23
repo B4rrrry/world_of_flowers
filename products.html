@@ -33,13 +33,13 @@
               <nav class="header-nav">
                 <ul class="header__nav">
                   <li class="header__nav-item">
-                    <a href="#" class="header__nav-link">Каталог</a>
+                    <a href="./products.html" class="header__nav-link">Каталог</a>
                   </li>
                   <li class="header__nav-item">
-                    <a href="#" class="header__nav-link">Доставка</a>
+                    <a href="./delivery.html" class="header__nav-link">Доставка</a>
                   </li>
                   <li class="header__nav-item">
-                    <a href="#" class="header__nav-link">Контакты</a>
+                    <a href="./contacts.html" class="header__nav-link">Контакты</a>
                   </li>
                 </ul>
               </nav>
@@ -78,14 +78,16 @@
               <div class="products__wrap wrap">
                 <ul class="products__list">
                   <li class="products__list-item product__item-cont">
-                    <img
-                      src="assets/img/products/1.png"
-                      alt="Букет"
-                      class="products__list-img"
-                    />
+                   <a href="product.html" class="products__link">
+                      <img
+                        src="assets/img/products/1.png"
+                        alt="Букет"
+                        class="products__list-img"
+                      />
+                   </a>
                     <div class="products__list-info">
-                      <p class="products__list-name">Букет “Нежный”</p>
-                      <p class="products__list-price">2000 руб.</p>
+                     <a href="product.html" class="products__link"> <p class="products__list-name">Букет “Нежный”</p></a>
+                   <a href="product.html" class="products__link">   <p class="products__list-price">2000 руб.</p></a>
                     </div>
                     <div class="buy__wrap">
                       <button class="buy__btn">Купить букет</button>
@@ -291,6 +293,9 @@
           Оставьте номер телефона, и мы перезвоним вам для уточнения заказа
         </p>
         <ul class="modal__request_list">
+          <li class="modal__request_list-item">
+            <input type="text" class="modal__request-input modal__request-text" placeholder="Ваше имя" />
+          </li>
           <li class="modal__request_list-item">
             <input type="text" class="modal__request-input modal__request-text" placeholder="Номер телефона" />
           </li>

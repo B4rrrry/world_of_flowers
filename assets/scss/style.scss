@@ -126,6 +126,7 @@ button {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1111;
     &-active {
       display: flex;
     }
@@ -217,3 +218,4 @@ button {
 @import "./products";
 @import "./product";
 @import "./contacts";
+@import "./delivery";

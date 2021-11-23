@@ -9,6 +9,10 @@ $open: "Open Sans", sans-serif;
     text-align: center;
     margin-bottom: 90px;
   }
+  &__link {
+    text-decoration: none;
+    color:#000;
+  }
   // list
   &__list {
     display: flex;
@@ -43,8 +47,10 @@ $open: "Open Sans", sans-serif;
     // info
     &-info {
       display: flex;
+      justify-content: space-between;
       margin-bottom: 10px;
     }
+   
     // name
     &-name {
       font-style: normal;

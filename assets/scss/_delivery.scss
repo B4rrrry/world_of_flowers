@@ -1,0 +1,32 @@
+.delivery {
+  padding-top: 200px;
+  &__title {
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  &__wrap {
+    width: 532px;
+    height: 394px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    z-index: 1;
+    box-shadow: 0px 0px 3px 1px #00000036;
+  }
+  &__text {
+    width: 442px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+  }
+  &__bg {
+    position: absolute;
+    z-index: -1;
+  }
+}
