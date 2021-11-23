@@ -7,6 +7,7 @@ body {
   font-family: $open;
 }
 .title {
+  font-family: $gara;
   font-style: normal;
   font-weight: normal;
   font-size: 54px;
@@ -88,3 +89,4 @@ section {
 @import "./hits";
 @import "./sliders";
 @import "./news";
+@import "./submit";

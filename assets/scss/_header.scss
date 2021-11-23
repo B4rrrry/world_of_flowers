@@ -31,6 +31,21 @@ $wh: #fff;
     }
     &-link {
       color: inherit;
+      position: relative;
+      &::before {
+        content:"";
+        position: absolute;
+        bottom:-2px;
+        background-color: #000;
+        height: 2px;
+        width: 0;
+        transition: all 0.8s ease;
+      }
+      &:hover {
+        &::before {
+          width: 80%;
+        }
+      }
     }
   }
   &__mobile {

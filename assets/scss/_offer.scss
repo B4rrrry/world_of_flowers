@@ -2,7 +2,7 @@
   padding-top: 10vh;
   background-color: #fff;
   &__info {
-    margin-top: 240px;
+    margin-top: 0px;
     margin-right: 50px;
   }
   &__title {
@@ -40,5 +40,8 @@
   &__img {
     width: 812px;
     height: 869px;
+    position: absolute;
+    right: 0;
+    top: 100px;
   }
 }
