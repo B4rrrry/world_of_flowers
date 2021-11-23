@@ -1,0 +1,64 @@
+$gara: "Cormorant Garamond", serif;
+$open: "Open Sans", sans-serif;
+.products {
+  padding-top: 200px;
+  padding-bottom: 100px;
+  height: fit-content;
+  // title
+  &__title {
+    text-align: center;
+    margin-bottom: 90px;
+  }
+  // list
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    // item
+    &-item {
+      margin-bottom: 40px;
+      transition: box-shadow  0.3s ease;
+      background: #ffffff;
+      padding: 30px 20px 50px;
+      &:not(:nth-child(3n + 3)) {
+        margin-right: 70px;
+      }
+      &:nth-last-child(-n + 3) {
+        margin-bottom: 0;
+      }
+      &:hover {
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+        .buy__wrap {
+          opacity: 1;
+        }
+      }
+    }
+    // img
+    &-img {
+      width: 310px;
+      height: 340px;
+      margin-bottom: 25px;
+    }
+    // info
+    &-info {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    // name
+    &-name {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 22px;
+      line-height: 30px;
+      margin-right: auto;
+    }
+    // price
+    &-price {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 30px;
+    }
+  }
+}
