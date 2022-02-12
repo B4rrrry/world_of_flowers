@@ -88,21 +88,38 @@ button {
 .buy {
   &__wrap {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     transition: all 0.7s ease;
     opacity: 0;
   }
   &__btn {
-    width: 161px;
-    height: 47px;
+    width: 210px;
+    height: 52px;
     border: 1px solid #000000;
     background-color: transparent;
     transition: all 0.8s ease;
+    margin-bottom: 20px;
     &:hover {
       border: 0;
       background-color: #000;
       color: #fff;
     }
+  }
+  // basket
+  &__basket {
+    width: 210px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    color: #fff;
+    background: #be77aa;
+    border: 1px solid #be77aa;
   }
   &__favorites {
     display: flex;
@@ -111,7 +128,8 @@ button {
     background-color: transparent;
     border: 0;
     &-img {
-      padding-left: 4px;
+      width: 24px;
+      height: 24px;
     }
   }
 }
@@ -219,3 +237,5 @@ button {
 @import "./product";
 @import "./contacts";
 @import "./delivery";
+@import "./filter";
+@import "./pagination";
