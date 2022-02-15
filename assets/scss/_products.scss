@@ -9,26 +9,31 @@ $open: "Open Sans", sans-serif;
     text-align: center;
     margin-bottom: 90px;
   }
+  &__wrap {
+    margin-bottom: 60px;
+  }
   &__link {
     text-decoration: none;
     color:#000;
   }
   // list
   &__list {
+    width: 750px;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
 
     // item
     &-item {
+      height: fit-content;
       margin-bottom: 40px;
       transition: box-shadow  0.3s ease;
       background: #ffffff;
       padding: 30px 20px 50px;
-      &:not(:nth-child(3n + 3)) {
-        margin-right: 70px;
+      margin-bottom: 30px;
+      &:not(:nth-child(2n + 2)) {
+        margin-right: 30px;
       }
-      &:nth-last-child(-n + 3) {
+      &:nth-last-child(-n + 2) {
         margin-bottom: 0;
       }
       &:hover {
@@ -48,7 +53,7 @@ $open: "Open Sans", sans-serif;
     &-info {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: 22px;
     }
    
     // name
@@ -57,7 +62,8 @@ $open: "Open Sans", sans-serif;
       font-weight: normal;
       font-size: 22px;
       line-height: 30px;
-      margin-right: auto;
+      text-align: center;
+      margin-bottom: 20px;
     }
     // price
     &-price {

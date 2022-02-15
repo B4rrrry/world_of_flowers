@@ -1,3 +1,4 @@
+
 modalRequest();
 function modalRequest() {
   const buyBtn = document.querySelectorAll(".buy__btn"),
@@ -18,12 +19,7 @@ function modalRequest() {
   function openModal () {
     modalWrap.classList.add("modal__request-wrap-active");
     modalForm.classList.add("modal__request-form-active");
-    modalWrap.addEventListener('click', function (e) {
-      if(e.target != modalForm) {
-          closeModal(); 
-          document.removeEventListener('click', this)
-      }
-  })
+ 
   }
   buyBtn.forEach((btn, i) => {
     btn.addEventListener("click", function () {

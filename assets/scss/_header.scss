@@ -33,9 +33,9 @@ $wh: #fff;
       color: inherit;
       position: relative;
       &::before {
-        content:"";
+        content: "";
         position: absolute;
-        bottom:-2px;
+        bottom: -2px;
         background-color: #000;
         height: 2px;
         width: 0;
@@ -48,6 +48,7 @@ $wh: #fff;
       }
     }
   }
+
   &__mobile {
     color: inherit;
     &-phone {
@@ -63,6 +64,54 @@ $wh: #fff;
     }
     &-link {
       color: inherit;
+    }
+  }
+  // BTNS
+  &-btns {
+    display: flex;
+    align-items: center;
+    margin-right: 33px;
+    // item
+    &__item {
+      margin-right: 14px;
+      &:last-child {
+        margin-right: 0;
+      }
+      &--basket {
+        position: relative;
+      }
+    }
+    // btn
+    &__btn {
+      border: 0;
+      background: transparent;
+      &-img {
+        &--fav {
+          &:hover {
+            path {
+              fill:red;
+              stroke:red;
+            }
+          }
+        }
+      }
+    }
+    // count 
+    &__count {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #BE77AA;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      font-weight: 600;
+      font-size: 8px;
+      line-height: 11px;
+      color: #FFFFFF;
+      right: 3px;
+      bottom: -2px;
     }
   }
 }

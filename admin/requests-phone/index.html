@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/style.min.css" />
+        <title>Главная страницы</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav>
+                            <ul class="header-nav">
+                                <li class="header-nav__item">
+                                    <a
+                                        href="../main-window/index.html"
+                                        class="header-nav__link"
+                                        ><img
+                                            src="img/1.svg"
+                                            alt="Главная"
+                                            class="header-nav__img"
+                                    /></a>
+                                </li>
+                                <li class="header-nav__item current-page">
+                                    <a
+                                        href="../requests/index.html"
+                                        class="header-nav__link"
+                                        ><img
+                                            src="img/2.svg"
+                                            alt="Список"
+                                            class="header-nav__img"
+                                    /></a>
+                                </li>
+                                <li class="header-nav__item current-page">
+                                    <a
+                                        href="./index.html"
+                                        class="header-nav__link"
+                                        ><img
+                                            src="img/2.svg"
+                                            alt="Список"
+                                            class="header-nav__img"
+                                    /></a>
+                                </li>
+                                <li class="header-nav__item ">
+                                    <a
+                                        href="../changer-window/index.html"
+                                        class="header-nav__link"
+                                        ><img
+                                            src="img/3.svg"
+                                            alt="Редактировать"
+                                            class="header-nav__img"
+                                    /></a>
+                                </li>
+                                <li class="header-nav__item">
+                                    <a
+                                        href="../auth/index.html"
+                                        class="header-nav__link"
+                                        ><img
+                                            src="img/4.svg"
+                                            alt="Выйти"
+                                            class="header-nav__img"
+                                    /></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="window">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="window-title">
+                            Администрирование / <span>Заявки на звонок</span>
+                        </h1>
+                        <div class="window-wrapper">
+                            <form action="" class="form-sort">
+                                <span class="form-sort-text">
+                                    Режим сортировки
+                                </span>
+                                <div class="select-wrapper first">
+                                    <select
+                                        name="select-sort-first"
+                                        id="select-first"
+                                        class="select-sort select-sort__first"
+                                    >
+                                        <option value="0" class="select-sort__item">
+                                            По номеру
+                                        </option>
+                                    </select>
+                                </div>
+                               <div class="select-wrapper second">
+                                    <select
+                                        name="select-sort-second"
+                                        id="select-sort-second"
+                                        class="select-sort select-sort__second"
+                                    >
+                                        <option value="0" class="select-sort__item">
+                                            По убыванию
+                                        </option>
+                                    </select>
+                               </div>
+                                <input type="submit" value="Показать" class="form-sort-submit form-sort-submit__first">
+                            </form>
+                            <form action="" class="form-find">
+                                <span class="form-find-text">
+                                    Прямой поиск
+                                </span>
+                                <div class="select-wrapper first">
+                                    <select
+                                        name="select-sort-first"
+                                        id="select-first"
+                                        class="select-sort select-sort__first"
+                                    >
+                                        <option value="0" class="select-sort__item">
+                                            По номеру
+                                        </option>
+                                    </select>
+                                </div>
+                               <div class="select-find second">
+                                   <input type="text" class="input-value" placeholder="Значение">
+                               </div>
+                                <input type="submit" value="Показать"  class="form-sort-submit form-find-submit__first">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="requests-wrapper">
+                            <div class="request-item">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            Номер
+                                        </td>
+                                        <td>
+                                            Имя
+                                        </td>
+                                        <td>
+                                            Телефон
+                                        </td>
+                                        <td>
+                                           Статус
+                                        </td>
+                                        <td>
+                                            Дата
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                           Дмитрий
+                                        </td>
+                                        <td>
+                                            +7-86723-213-12
+                                        </td>
+                                        <td>
+                                           Не обработан
+                                        </td>
+                                        <td>
+                                            24-01-2020
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

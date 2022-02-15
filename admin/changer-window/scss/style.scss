@@ -1,0 +1,255 @@
+ul,
+ol,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: "Montserrat", sans-serif;
+}
+input,
+select {
+    outline: none;
+}
+
+input[type="text"],
+select {
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    background: transparent;
+    display: block;
+}
+input::placeholder,
+option,
+select {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    font-family: "Montserrat", sans-serif;
+}
+.current-page {
+    background: #1d1d1d;
+}
+.header {
+    background-color: #000;
+    width: 68px;
+    height: 100vh;
+    float: left;
+    &-nav {
+        &__item {
+            padding: 16px 16px;
+            margin-bottom: 33px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        &__link {
+            width: 68px;
+            height: 68px;
+        }
+    }
+}
+.window {
+    &-title {
+        margin: 19px 0 15px 34px;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 39px;
+
+        span {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 22px;
+        }
+    }
+    &-wrapper {
+        margin: 0 0 0 34px;
+        &-title {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 29px;
+            margin-bottom: 25px;
+        }
+        .label-text {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+            margin-bottom: 10px;
+        }
+        .change-form {
+            display: flex;
+            margin-bottom: 40px;
+            .input-wrapper {
+                margin-right: 35px;
+            }
+            .input-wrapper:last-child {
+                margin-right: 30px;
+            }
+            .program-select {
+                position: relative;
+                padding: 6px 18px 5px 10px;
+            }
+            .select-change {
+                position: relative;
+                padding: 6px 18px 5px 10px;
+            }
+            .select-wrapper {
+                position: relative;
+            }
+            .select-wrapper.first {
+                width: 215px;
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    background-repeat: no-repeat;
+                    background-color: white;
+                    width: 12px;
+                    height: 88%;
+                    top: 2px;
+                    right: 3px;
+                }
+            }
+            .select-wrapper.second {
+                width: 166px;
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    background-repeat: no-repeat;
+                    background-color: white;
+                    width: 10px;
+                    height: 88%;
+                    top: 2px;
+                    right: 6px;
+                }
+            }
+            .select-wrapper::before {
+                content: "";
+                display: block;
+                position: absolute;
+                background-image: url(../img/Vector.svg);
+                background-repeat: no-repeat;
+                background-color: white;
+                background-size: 20px 8px;
+                width: 20px;
+                height: 20px;
+                top: 15px;
+                right: 13px;
+            }
+            .description-change {
+                width: 436px;
+                height: 35px;
+                padding-left: 15px;
+            }
+            .change-submit,
+            .delete-submit,
+            .add-submit {
+                width: 166px;
+                height: 35px;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 17px;
+                color: white;
+                margin-top: 31px;
+                background-color: black;
+                border: none;
+                outline: none;
+            }
+        }
+        .delete-title {
+            margin-bottom: 25px;
+        }
+        .form-delete {
+            display: flex;
+            margin-bottom: 40px;
+            .program-select {
+                position: relative;
+                padding: 6px 18px 5px 10px;
+            }
+
+            .select-wrapper {
+                position: relative;
+                margin-right: 35px;
+            }
+            .select-wrapper.first {
+                width: 215px;
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    background-repeat: no-repeat;
+                    background-color: white;
+                    width: 12px;
+                    height: 88%;
+                    top: 2px;
+                    right: 3px;
+                }
+            }
+            .select-wrapper::before {
+                content: "";
+                display: block;
+                position: absolute;
+                background-image: url(../img/Vector.svg);
+                background-repeat: no-repeat;
+                background-color: white;
+                background-size: 20px 8px;
+                width: 20px;
+                height: 20px;
+                top: 15px;
+                right: 13px;
+            }
+            .delete-submit {
+                width: 166px;
+                height: 35px;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 17px;
+                color: white;
+                margin-top: 0px;
+                background-color: black;
+                border: none;
+                outline: none;
+            }
+        }
+        .add-title {
+            margin-bottom: 24px;
+        }
+        .form-add {
+            display: flex;
+            & input[type="text"] {
+                display: inline-block;
+                width: 166px;
+                height: 35px;
+                padding-left: 15px;
+            }
+            .add-submit {
+                width: 166px;
+                height: 35px;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 17px;
+                color: white;
+                margin-top: 0px;
+                background-color: black;
+                border: none;
+                outline: none;
+                display: block;
+                margin-top: 16px;
+            }
+        }
+    }
+}

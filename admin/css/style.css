@@ -1,0 +1,111 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.auth {
+  -webkit-transform: translateY(70%);
+      -ms-transform: translateY(70%);
+          transform: translateY(70%);
+}
+
+.auth-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.auth-title {
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 59px;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.auth-text {
+  width: 378px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #000000;
+  margin: 0 auto 20px;
+}
+
+.auth-form {
+  margin: 0 auto;
+}
+
+.auth-form input {
+  outline: none;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  display: block;
+  width: 362px;
+  height: 50px;
+  border: 2px solid black;
+  margin-bottom: 20px;
+}
+
+.auth-form input::-webkit-input-placeholder {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8d8d8d;
+  padding-left: 25px;
+}
+
+.auth-form input:-ms-input-placeholder {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8d8d8d;
+  padding-left: 25px;
+}
+
+.auth-form input::-ms-input-placeholder {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8d8d8d;
+  padding-left: 25px;
+}
+
+.auth-form input::placeholder {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8d8d8d;
+  padding-left: 25px;
+}
+
+.auth-form input:nth-child(2) {
+  margin-bottom: 30px;
+}
+
+.auth-form__submit {
+  background: #000000;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+}
+/*# sourceMappingURL=style.css.map */

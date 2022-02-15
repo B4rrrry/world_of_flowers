@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
+    <title>Главная страницы</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <nav>
+              <ul class="header-nav">
+                <li class="header-nav__item">
+                  <a href="../main-window/index.html" class="header-nav__link"
+                    ><img src="img/1.svg" alt="Главная" class="header-nav__img"
+                  /></a>
+                </li>
+                <li class="header-nav__item">
+                  <a href="../requests/index.html" class="header-nav__link"
+                    ><img src="img/2.svg" alt="Список" class="header-nav__img"
+                  /></a>
+                </li>
+                <li class="header-nav__item">
+                  <a href="../requests-phone/index.html" class="header-nav__link"
+                    ><img src="img/2.svg" alt="Список" class="header-nav__img"
+                  /></a>
+                </li>
+                <li class="header-nav__item current-page">
+                  <a href="./index.html" class="header-nav__link"
+                    ><img
+                      src="img/3.svg"
+                      alt="Редактировать"
+                      class="header-nav__img"
+                  /></a>
+                </li>
+                <li class="header-nav__item">
+                  <a href="../auth/index.html" class="header-nav__link"
+                    ><img src="img/4.svg" alt="Выйти" class="header-nav__img"
+                  /></a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="window">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="window-title">
+              Администрирование / <span>Редактирование</span>
+            </h1>
+            <div class="window-wrapper">
+              <h2 class="window-wrapper-title">Изменения данных о товаре</h2>
+              <form action="" class="change-form">
+                <div class="input-wrapper">
+                  <label for="program" class="label-program label-text"
+                    >Редактирование товара</label
+                  >
+                  <div class="select-wrapper first">
+                    <select
+                      name="select-program"
+                      id="program"
+                      class="program-select"
+                    >
+                      <option selected value="0" class="program-select__item">
+                        Выберите товар
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="input-wrapper">
+                  <label for="change" class="label-program label-text"
+                    >Выберите что нужно изменить</label
+                  >
+                  <div class="select-wrapper second">
+                    <select
+                      name="select-change"
+                      id="change"
+                      class="select-change"
+                    >
+                      <option value="0" class="select-change__item">
+                        Срок обучения
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="input-wrapper">
+                  <label for="text" class="label-program label-text"
+                    >На что меняем</label
+                  >
+                  <input
+                    type="text"
+                    id="text"
+                    class="description-change"
+                    placeholder="Введите текст"
+                  />
+                </div>
+                <input type="submit" value="Поменять" class="change-submit" />
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="window-wrapper">
+              <h2 class="delete-title">Удаление товара</h2>
+              <form action="" class="form-delete">
+                <div class="select-wrapper first">
+                  <select
+                    name="select-program"
+                    id="program"
+                    class="program-select"
+                  >
+                    <option selected value="0" class="program-select__item">
+                      Выберите товар
+                    </option>
+                  </select>
+                </div>
+                <input type="submit" value="Удалить" class="delete-submit" />
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="window-wrapper">
+              <h2 class="add-title">Добавление товара</h2>
+              <form action="" class="form-add">
+                <div class="select-wrapper first">
+                  <input type="text" class="add-name" placeholder="Название товара" />
+                  <input
+                    type="text"
+                    placeholder="Цена товара"
+                    class="add-knowledge"
+                  />
+<!--                   <input
+                    type="text"
+                    placeholder="Чему вы научитесь"
+                    class="add-learn"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Описание"
+                    class="add-description"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Стоимость"
+                    class="add-price"
+                  /> -->
+                  <input type="submit" value="Добавить" class="add-submit" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
