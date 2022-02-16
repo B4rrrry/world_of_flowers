@@ -1,3 +1,12 @@
+<?php
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/data.php';
+  $data = new Data();
+  if (isset($_SESSION['User'])) {
+    $count = $data->getCartCount($_SESSION['User']['Login']);
+  } else {
+    $count = 0;
+  }
+?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -93,8 +102,13 @@
                 <a href="/cart/" class="header-btns__btn header-btns__btn--basket">
                   <img src="/assets/img/header/basket.svg" alt="fav" />
                 </a>
-                <!-- count  -->
-                <p class="header-btns__count">1</p>
+                <?php if (is_array($count)) : ?>
+                  <?php foreach ($count as $c) : ?>
+                    <p class="header-btns__count"><?=$c['count']?></p>
+                  <?php endforeach; ?>
+                <?php else : ?>
+                  <p class="header-btns__count"><?=$count?></p>
+                <?php endif; ?>
                 <!-- count end -->
               </li>
               <li class="header-btns__item">

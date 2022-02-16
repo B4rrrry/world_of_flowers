@@ -5,6 +5,11 @@ if (!isset($_SESSION['User'])) {
   header('Location: /auth/');
 }
 
+$data = new Data();
+$cart = $data->getCart($_SESSION['User']['Login']);
+$count = $data->getCartCount($_SESSION['User']['Login']);
+$amount = $data->getCartAmount($_SESSION['User']['Login']);
+
 require $_SERVER['DOCUMENT_ROOT'] . '/header.php'; 
 
 ?>
@@ -14,124 +19,50 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
       <div class="row">
         <div class="col-lg-12">
           <div class="basket__wrap">
-            <!-- title  -->
             <h1 class="basket__title title">Корзина</h1>
-            <!-- none  -->
-            <p class="basket__none">
-              Ваша корзина пуста. <br />
-              Воспользуйтесь каталогом, чтобы добавить товары.
-            </p>
-            <!-- none end -->
-            <!-- title end -->
+            <?php if (is_null($cart)) : ?>
+              <p class="basket__none">
+                Ваша корзина пуста. <br />
+                Воспользуйтесь каталогом, чтобы добавить товары.
+              </p>
+            <?php endif; ?>
             <div class="basket-info__wrap">
-              <!-- products list  -->
               <ul class="basket-list">
-                <!-- item  -->
+                <?php foreach ($cart as $item) : ?>
                 <li class="basket-list__item">
-                  <!-- delete btn  -->
                   <div class="basket-list__delete-btn">
                     <span></span>
                   </div>
-                  <!-- delete btn end -->
-                  <!-- img  -->
-                  <img src="assets/img/basket/1.png" alt="img" class="basket-list__img" />
-                  <!-- img end -->
-                  <!-- info  -->
+                  <img src="/assets/img/products/<?=$item['photo']?>" alt="<?=$item['name']?>" class="basket-list__img" />
                   <div class="basket-list__info">
-                    <!-- name  -->
-                    <p class="basket-list__name">Букет “Нежный”</p>
-                    <!-- name end -->
-                    <!-- count and price  -->
+                    <p class="basket-list__name"><?=$item['name']?></p>
                     <div class="basket-list__info-bottom">
-                      <!-- count  -->
                       <div class="basket-list__count-wrap">
-                        <!-- btn  -->
                         <button class="basket-list__count-btn basket-list__count-btn--min">
                           -
                         </button>
-                        <!-- btn end -->
-                        <!-- count  -->
-                        <p class="basket-list__count">1</p>
-                        <!-- count end -->
-                        <!-- btn  -->
+                        <p class="basket-list__count"><?=$item['count']?></p>
                         <button class="basket-list__count-btn basket-list__count-btn--plus">
                           +
                         </button>
-                        <!-- btn end -->
                       </div>
-                      <!-- count end -->
-                      <!-- price  -->
-                      <p class="basket-list__price" data-price="2000">
-                        <span>2000 </span>руб.
+                      <p class="basket-list__price" data-price="<?=$item['price']?>">
+                        <span><?=$item['price']?></span> руб.
                       </p>
-                      <!-- price end -->
                     </div>
-                    <!-- count and price end -->
                   </div>
-                  <!-- info end -->
                 </li>
-                <!-- item end -->
-                <!-- item  -->
-                <li class="basket-list__item">
-                  <!-- delete btn  -->
-                  <div class="basket-list__delete-btn">
-                    <span></span>
-                  </div>
-                  <!-- delete btn end -->
-                  <!-- img  -->
-                  <img src="assets/img/basket/1.png" alt="img" class="basket-list__img" />
-                  <!-- img end -->
-                  <!-- info  -->
-                  <div class="basket-list__info">
-                    <!-- name  -->
-                    <p class="basket-list__name">Букет “Нежный”</p>
-                    <!-- name end -->
-                    <!-- count and price  -->
-                    <div class="basket-list__info-bottom">
-                      <!-- count  -->
-                      <div class="basket-list__count-wrap">
-                        <!-- btn  -->
-                        <button class="basket-list__count-btn basket-list__count-btn--min">
-                          -
-                        </button>
-                        <!-- btn end -->
-                        <!-- count  -->
-                        <p class="basket-list__count">1</p>
-                        <!-- count end -->
-                        <!-- btn  -->
-                        <button class="basket-list__count-btn basket-list__count-btn--plus">
-                          +
-                        </button>
-                        <!-- btn end -->
-                      </div>
-                      <!-- count end -->
-                      <!-- price  -->
-                      <p class="basket-list__price" data-price="2000">
-                        <span>2000 </span>руб.
-                      </p>
-                      <!-- price end -->
-                    </div>
-                    <!-- count and price end -->
-                  </div>
-                  <!-- info end -->
-                </li>
-                <!-- item end -->
+                <?php endforeach; ?>
               </ul>
-              <!-- products list end -->
-              <!-- basket total  -->
               <div class="basket-total">
-                <!-- list  -->
                 <ul class="basket-total__list">
-                  <!-- item  -->
                   <li class="basket-total__list-item">
-                    <!-- line  -->
                     <div class="basket-total__list-line">
-                      <!-- name  -->
                       <p class="basket-total__list-name">Заказ</p>
                       <!-- name end -->
                       <!-- price  -->
                       <p class="basket-total__list-price">
-                        <span>32000 </span>руб.
+                        <span><?=$amount?></span> руб.
                       </p>
                       <!-- price end -->
                     </div>
@@ -143,19 +74,9 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                       <!-- name end -->
                       <!-- price  -->
                       <p class="basket-total__list-count">
-                        <span>11 </span>шт.
-                      </p>
-                      <!-- price end -->
-                    </div>
-                    <!-- line end -->
-                    <!-- line  -->
-                    <div class="basket-total__list-line">
-                      <!-- name  -->
-                      <p class="basket-total__list-name">Скидка</p>
-                      <!-- name end -->
-                      <!-- price  -->
-                      <p class="basket-total__list-discount">
-                        <span>0 </span>руб.
+                        <?php foreach ($count as $c) : ?>
+                          <span><?=$c['count']?> </span>шт.
+                        <?php endforeach; ?>
                       </p>
                       <!-- price end -->
                     </div>
@@ -171,36 +92,13 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                       <!-- name end -->
                       <!-- price  -->
                       <p class="basket-total__list-total-price">
-                        <span>32000 </span>руб.
+                        <span><?=$amount?></span> руб.
                       </p>
                       <!-- price end -->
                     </div>
-                    <!-- line end -->
-                    <form action="" class="basket-total__list-form">
-                      <!-- coupon  -->
-                      <input type="text" name="" id="" class="basket-total__list-coupon" placeholder="Код купона" />
-                      <!-- coupon end -->
-                      <!-- sub  -->
-                      <input type="submit" value="Применить" class="basket-total__list-sub" />
-                      <!-- sub end -->
-                    </form>
                   </li>
                   <!-- item end -->
                 </ul>
-                <!-- list end -->
-                <!-- agree  -->
-                <div class="basket-total__list-agree">
-                  <!-- wrap  -->
-                  <div class="basket-total__list-agree-btn box-basket-wrap">
-                    <input type="checkbox" name="" id="" class="basket-total__list-agree-box box-basket" />
-                  </div>
-                  <!-- wrap end -->
-                  <!-- text  -->
-                  <p class="basket-total__list-agree-text">
-                    согласен на обработку персональных данных
-                  </p>
-                  <!-- text end -->
-                </div>
                 <!-- agree end -->
               </div>
               <!-- basket total end -->

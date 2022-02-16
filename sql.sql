@@ -13,15 +13,32 @@ select * from users;
 insert into users(login, password, name)
 values ('customer', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','Покупатель');
 
-
 create table user_cart
 (
 id int primary key auto_increment,
 boquet int not null,
+count int not null,
 user int not null,
 constraint fk_cart_bq foreign key (boquet) references boquets(id),
 constraint fk_cart_user foreign key (user) references users(id)
 );
+
+select * from user_cart;
+
+insert into user_cart(boquet, count, user)
+values	('4','3','1'),
+		('2','1','1'),
+        ('6','4','1');
+
+create view getCart
+(login, name, price, photo, count)
+as
+select u.login, b.name, b.price * uc.count, b.photo, uc.count
+from user_cart as uc 
+	inner join boquets as b on uc.boquet=b.id
+    inner join users as u on uc.user=u.id;
+    
+select count(count) from getCart where login = 'customer';
 
 create table flowers
 (
@@ -123,3 +140,12 @@ id int primary key auto_increment,
 client_name varchar(25) not null,
 email varchar(255) not null
 );
+
+create table phone_queries
+(
+id int primary key auto_increment,
+clientName varchar(25) not null,
+clientPhone varchar(25) not null
+);
+
+select * from phone_queries;

@@ -29,7 +29,7 @@ class Data
 
   public function getProductData(int $id): array
   {
-    $query = 'SELECT `name`, `price`, `photo` FROM `boquets` WHERE id = :id';
+    $query = 'SELECT `id`, `name`, `price`, `photo` FROM `boquets` WHERE id = :id';
     $params = ['id' => $id];
     return $this->db->query($query, $params);
   }
@@ -39,5 +39,35 @@ class Data
     $query = 'SELECT * FROM getProductContent WHERE id = :id';
     $params = ['id' => $id];
     return $this->db->query($query, $params);
+  }
+
+  public function getCart(string $login): ?array
+  {
+    return $this->db->query(
+      'SELECT `name`, `price`, `photo`, `count` FROM `getCart` WHERE `login` = :login',
+      ['login' => $login]
+    );
+  }
+
+  public function getCartCount(string $login) {
+    return $this->db->query(
+      'SELECT count(`count`) as `count` FROM `getCart` WHERE `login` = :login',
+      ['login' => $login]
+    );
+  }
+
+  public function getCartAmount(string $login) {
+    $prodPrices = $this->db->query(
+      'SELECT `price` FROM `getCart` WHERE `login` = :login',
+      ['login' => $login]
+    );
+
+    $amount = 0;
+
+    foreach ($prodPrices as $item) {
+      $amount += $item['price'];
+    }
+
+    return $amount;
   }
 }

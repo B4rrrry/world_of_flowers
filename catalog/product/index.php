@@ -40,7 +40,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                 </ul>
                 <div class="product__price-wrap">
                   <p class="product__price"><?= $data['price'] ?> руб.</p>
-                  <button class="buy__btn">Купить букет</button>
+                  <button class="buy__btn" id="buySender" data-item="<?=$data['id']?>">Купить букет</button>
                 </div>
               </div>
             <?php endforeach; ?>
@@ -50,10 +50,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
     </div>
   </section>
 </main>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src="assets/js/slick.min.js"></script>
-<script src="assets/js/script-slick.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="/ajax/addToCart.js"></script>
 </body>
-
 </html>
