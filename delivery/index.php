@@ -23,7 +23,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <!-- count end -->
                     <!-- img  -->
                     <img
-                      src="assets/img/delivery/1.png"
+                      src="/assets/img/delivery/1.png"
                       alt="img"
                       class="delivery-list__img"
                     />
@@ -42,7 +42,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <!-- desc end -->
                     <!-- arrow  -->
                     <img
-                      src="assets/img/delivery/ar_1.svg"
+                      src="/assets/img/delivery/ar_1.svg"
                       alt="arrow"
                       class="delivery-list__arrow delivery-list__arrow--first"
                     />
@@ -58,7 +58,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <!-- count end -->
                     <!-- img  -->
                     <img
-                      src="assets/img/delivery/1.png"
+                      src="/assets/img/delivery/1.png"
                       alt="img"
                       class="delivery-list__img"
                     />
@@ -77,7 +77,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                       <!-- text end -->
                       <!-- arrow  -->
                       <img
-                        src="assets/img/delivery/ar_2.svg"
+                        src="/assets/img/delivery/ar_2.svg"
                         alt="arrow"
                         class="delivery-list__arrow delivery-list__arrow--second"
                       />
@@ -95,7 +95,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <!-- count end -->
                     <!-- img  -->
                     <img
-                      src="assets/img/delivery/3.png"
+                      src="/assets/img/delivery/3.png"
                       alt="img"
                       class="delivery-list__img"
                     />
@@ -113,7 +113,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                       <!-- text end -->
                       <!-- arrow  -->
                       <img
-                        src="assets/img/delivery/ar_3.svg"
+                        src="/assets/img/delivery/ar_3.svg"
                         alt="arrow"
                         class="delivery-list__arrow delivery-list__arrow--third"
                       />
@@ -131,7 +131,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <!-- count end -->
                     <!-- img  -->
                     <img
-                      src="assets/img/delivery/4.png"
+                      src="/assets/img/delivery/4.png"
                       alt="img"
                       class="delivery-list__img"
                     />

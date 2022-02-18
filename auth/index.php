@@ -4,12 +4,17 @@ if (isset($_POST['submit'])) {
   $login = htmlspecialchars(trim($_POST['login']));
   $password = htmlspecialchars(trim($_POST['password']));
   $db = Db::getInstance();
-  $query = "SELECT `login`, `password`, `name` FROM `users` WHERE `login` = :userLogin AND `password` = :userPass";
+  $query = "SELECT `login`, `password`, `name`, `access` FROM `users` WHERE `login` = :userLogin AND `password` = :userPass";
   $params = ['userLogin' => $login, 'userPass' => hash('sha256', $password)];
   $data = $db->query($query, $params);
   
   if (!empty($data)) {
-    $_SESSION['User'] = ['Login' => $data[0]['login'], 'Password' => $data[0]['password'], 'Name' => $data[0]['name']];
+    $_SESSION['User'] = [
+      'Login' => $data[0]['login'], 
+      'Password' => $data[0]['password'], 
+      'Name' => $data[0]['name'],
+      'Access' => $data[0]['access']
+    ];
     header('Location: /cart/');
   }
 }

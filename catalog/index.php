@@ -2,7 +2,9 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/data.php';
 $data = new Data();
 $products = $data->getProducts();
+$flowers = $data->getFlowers();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
+var_dump($_POST);
 ?>
 <main>
   <section class="products">
@@ -16,7 +18,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
         <div class="col-lg-12">
           <div class="products__wrap wrap">
             <!-- filters  -->
-            <form action="/" method="post" class="products__filter filter">
+            <form action="<?=$_SERVER['PHP_SELF']?>" method="post" class="products__filter filter">
               <!-- list  -->
               <ul class="filter-list">
                 <!-- item  -->
@@ -28,11 +30,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <div class="polzunok-labels__wrap">
                       <label class="polzunok-label" for="">
                         от:
-                        <input type="text" class="polzunok-input-5-left" />
+                        <input type="text" name="startPrice" class="polzunok-input-5-left" />
                       </label>
                       <label class="polzunok-label" for="">
                         до:
-                        <input type="text" class="polzunok-input-5-right" /></label>
+                        <input type="text" name="endPrice" class="polzunok-input-5-right" /></label>
                     </div>
                     <div class="polzunok-5"></div>
                   </div>
@@ -49,7 +51,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <li class="box-list__item box-list__item--w">
                       <!-- wrap  -->
                       <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
+                        <input type="checkbox" data-checkbox-lenght-value="30см" class="box-list__box box-list__box--checkbox" />
                       </div>
                       <!-- wrap end  -->
                       <!-- label -->
@@ -61,7 +63,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <li class="box-list__item box-list__item--w">
                       <!-- wrap  -->
                       <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
+                        <input type="checkbox" data-checkbox-lenght-value="35см" class="box-list__box box-list__box--checkbox" />
                       </div>
                       <!-- wrap end  -->
                       <!-- label -->
@@ -73,7 +75,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <li class="box-list__item box-list__item--w">
                       <!-- wrap  -->
                       <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
+                        <input type="checkbox" data-checkbox-lenght-value="40см" class="box-list__box box-list__box--checkbox" />
                       </div>
                       <!-- wrap end  -->
                       <!-- label -->
@@ -85,7 +87,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <li class="box-list__item box-list__item--w">
                       <!-- wrap  -->
                       <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
+                        <input type="checkbox" data-checkbox-lenght-value="45см" class="box-list__box box-list__box--checkbox" />
                       </div>
                       <!-- wrap end  -->
                       <!-- label -->
@@ -97,7 +99,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <li class="box-list__item box-list__item--w">
                       <!-- wrap  -->
                       <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
+                        <input type="checkbox" data-checkbox-lenght-value="50см" class="box-list__box box-list__box--checkbox" />
                       </div>
                       <!-- wrap end  -->
                       <!-- label -->
@@ -109,7 +111,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <li class="box-list__item box-list__item--w">
                       <!-- wrap  -->
                       <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
+                        <input type="checkbox" data-checkbox-lenght-value="60см" class="box-list__box box-list__box--checkbox" />
                       </div>
                       <!-- wrap end  -->
                       <!-- label -->
@@ -131,7 +133,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <li class="box-list__item box-list__item--to">
                       <!-- wrap  -->
                       <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
+                        <input type="checkbox" data-checkbox-for-who="Маме" name="" id="" class="box-list__box box-list__box--checkbox" />
                       </div>
                       <!-- wrap end  -->
                       <!-- label -->
@@ -143,7 +145,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <li class="box-list__item box-list__item--to">
                       <!-- wrap  -->
                       <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
+                        <input type="checkbox" data-checkbox-for-who="Сестре" class="box-list__box box-list__box--checkbox" />
                       </div>
                       <!-- wrap end  -->
                       <!-- label -->
@@ -155,7 +157,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <li class="box-list__item box-list__item--to">
                       <!-- wrap  -->
                       <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
+                        <input type="checkbox" data-checkbox-for-who="Бабушке" class="box-list__box box-list__box--checkbox" />
                       </div>
                       <!-- wrap end  -->
                       <!-- label -->
@@ -167,7 +169,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <li class="box-list__item box-list__item--to">
                       <!-- wrap  -->
                       <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
+                        <input type="checkbox" data-checkbox-for-who="Коллеге" class="box-list__box box-list__box--checkbox" />
                       </div>
                       <!-- wrap end  -->
                       <!-- label -->
@@ -179,7 +181,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <li class="box-list__item box-list__item--to">
                       <!-- wrap  -->
                       <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
+                        <input type="checkbox" data-checkbox-for-who="Девушке" class="  idinahui box-list__box box-list__box--checkbox" />
                       </div>
                       <!-- wrap end  -->
                       <!-- label -->
@@ -191,7 +193,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <li class="box-list__item box-list__item--to">
                       <!-- wrap  -->
                       <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
+                        <input type="checkbox" data-checkbox-for-who="Ребенку" class="box-list__box box-list__box--checkbox" />
                       </div>
                       <!-- wrap end  -->
                       <!-- label -->
@@ -200,121 +202,22 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     </li>
                     <!-- item end  -->
                   </ul>
-                  <!-- checkbox list end -->
                 </li>
-                <!-- item end  -->
-                <!-- item end  -->
                 <li class="filter-list__item">
-                  <!-- title  -->
                   <p class="filter-list__title">Цветы в составе</p>
-                  <!-- title end -->
-                  <!-- checkbox list  -->
                   <ul class="filter-list__box-list box-list">
-                    <!-- item  -->
+                    <?php foreach ($flowers as $flower) : ?>
                     <li class="box-list__item box-list__item--comp">
-                      <!-- wrap  -->
                       <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
+                        <input type="checkbox" data-flower-in="<?=$flower['name']?>" class="checkbox-flower box-list__box box-list__box--checkbox" />
                       </div>
-                      <!-- wrap end  -->
-                      <!-- label -->
-                      <label for="" class="box-list__label">Розы</label>
-                      <!-- label end -->
+                      <label for="" class="box-list__label"><?=$flower['name']?></label>
                     </li>
-                    <!-- item end  -->
-                    <!-- item  -->
-                    <li class="box-list__item box-list__item--comp">
-                      <!-- wrap  -->
-                      <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
-                      </div>
-                      <!-- wrap end  -->
-                      <!-- label -->
-                      <label for="" class="box-list__label">Герберы</label>
-                      <!-- label end -->
-                    </li>
-                    <!-- item end  -->
-                    <!-- item  -->
-                    <li class="box-list__item box-list__item--comp">
-                      <!-- wrap  -->
-                      <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
-                      </div>
-                      <!-- wrap end  -->
-                      <!-- label -->
-                      <label for="" class="box-list__label">Гипсофила</label>
-                      <!-- label end -->
-                    </li>
-                    <!-- item end  -->
-                    <!-- item  -->
-                    <li class="box-list__item box-list__item--comp">
-                      <!-- wrap  -->
-                      <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
-                      </div>
-                      <!-- wrap end  -->
-                      <!-- label -->
-                      <label for="" class="box-list__label">Ромашки</label>
-                      <!-- label end -->
-                    </li>
-                    <!-- item end  -->
-                    <!-- item  -->
-                    <li class="box-list__item box-list__item--comp">
-                      <!-- wrap  -->
-                      <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
-                      </div>
-                      <!-- wrap end  -->
-                      <!-- label -->
-                      <label for="" class="box-list__label">Орхидеи</label>
-                      <!-- label end -->
-                    </li>
-                    <!-- item end  -->
-                    <!-- item  -->
-                    <li class="box-list__item box-list__item--comp">
-                      <!-- wrap  -->
-                      <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
-                      </div>
-                      <!-- wrap end  -->
-                      <!-- label -->
-                      <label for="" class="box-list__label">Пионы</label>
-                      <!-- label end -->
-                    </li>
-                    <!-- item end  -->
-                    <!-- item  -->
-                    <li class="box-list__item box-list__item--comp">
-                      <!-- wrap  -->
-                      <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
-                      </div>
-                      <!-- wrap end  -->
-                      <!-- label -->
-                      <label for="" class="box-list__label">Лилии</label>
-                      <!-- label end -->
-                    </li>
-                    <!-- item end  -->
-                    <!-- item  -->
-                    <li class="box-list__item box-list__item--comp">
-                      <!-- wrap  -->
-                      <div class="box-list__box-wrap">
-                        <input type="checkbox" name="" id="" class="box-list__box box-list__box--checkbox" />
-                      </div>
-                      <!-- wrap end  -->
-                      <!-- label -->
-                      <label for="" class="box-list__label">Альстрометрия</label>
-                      <!-- label end -->
-                    </li>
-                    <!-- item end  -->
+                    <?php endforeach; ?>
                   </ul>
-                  <!-- checkbox list end -->
                 </li>
-                <!-- item end  -->
               </ul>
-              <!-- list end -->
-              <!-- sub  -->
               <input type="submit" value="Найти" class="filter__sub" />
-              <!-- sub end -->
             </form>
             <ul class="products__list">
               <?php foreach ($products as $product) : ?>
@@ -324,7 +227,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <p class="products__list-name"><?= $product['name'] ?></p>
                   </a>
                   <p class="products__list-price"><?= $product['price'] ?></p>
-                    <button class="buy__favorites">
+                    <button class="buy__favorites" data-fav-prod-id="<?= $product['id'] ?>">
                       <img src="/assets/img/other/heart.svg" alt="heart" class="buy__favorites-img" />
                     </button>
                     <div class="buy__wrap">
@@ -386,4 +289,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
     </div>
   </section>
 </main>
+<script src="/assets/js/filter.js"></script>
+<script src="/ajax/favoriteSender.js"></script>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';

@@ -6,6 +6,11 @@
   } else {
     $count = 0;
   }
+
+  if (isset($_GET['logout']) && $_GET['logout'] == 'yes') {
+    session_destroy();
+    header('Location: ' . $_SERVER['PHP_SELF']);
+  }
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -122,9 +127,12 @@
                   </a>
                 <?php endif; ?>
                 </li>
-              <!-- item end  -->
+                <?php if (isset($_SESSION['User'])) : ?>
+                  <li class="header-btns__item">
+                    <a href="<?=$_SERVER['PHP_SELF'] . '?logout=yes'?>">Выйти</a>
+                  </li>
+                <?php endif; ?>
             </ul>
-            <!-- btns end -->
             <ul class="header__mobile">
               <li class="header__mobile-item">
                 <a

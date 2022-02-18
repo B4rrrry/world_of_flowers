@@ -70,18 +70,18 @@ $newProds = $data->getNewProducts();
           <div class="col-lg-12">
             <div class="hits__slider slider">
               <?php foreach ($hitProds as $hitProd) : ?>
-                <div class="slider__item" data-prodId="<?=$hitProd['id']?>">
-                  <a href="/catalog/product/?item=<?=$hitProd['id']?>" class="products__link">
-                    <img src="/assets/img/products/<?=$hitProd['photo']?>" alt="<?=$hitProd['name']?>" class="hits__slider-img" />
+                <div class="slider__item" data-prodId="<?= $hitProd['id'] ?>">
+                  <a href="/catalog/product/?item=<?= $hitProd['id'] ?>" class="products__link">
+                    <img src="/assets/img/products/<?= $hitProd['photo'] ?>" alt="<?= $hitProd['name'] ?>" class="hits__slider-img" />
                   </a>
                   <div class="hits__slider-info">
-                    <a href="/catalog/product/?item=<?=$hitProd['id']?>" class="products__link">
-                      <p class="hits__slider-name text"><?=$hitProd['name']?></p>
+                    <a href="/catalog/product/?item=<?= $hitProd['id'] ?>" class="products__link">
+                      <p class="hits__slider-name text"><?= $hitProd['name'] ?></p>
                     </a>
-                    <p class="hits__slider-price"><?=$hitProd['price']?></p>
+                    <p class="hits__slider-price"><?= $hitProd['price'] ?></p>
                   </div>
                   <div class="buy__wrap buy__wrap--main">
-                    <button class="buy__favorites ">
+                    <button class="buy__favorites " data-fav-prod-id="<?= $hitProd['id'] ?>">
                       <img src="/assets/img/other/heart.svg" alt="heart" class="buy__favorites-img" />
                     </button>
                   </div>
@@ -107,18 +107,18 @@ $newProds = $data->getNewProducts();
             <div class="news__wrap">
               <div class="news__slider slider">
                 <?php foreach ($newProds as $newProd) : ?>
-                  <div class="slider__item" data-prodId="<?=$newProd['id']?>">
-                    <a href="/catalog/product/?item=<?=$newProd['id']?>" class="products__link">
-                      <img src="assets/img/products/<?=$newProd['photo']?>" alt="<?=$newProd['name']?>" class="news__slider-img" />
+                  <div class="slider__item" data-prodId="<?= $newProd['id'] ?>">
+                    <a href="/catalog/product/?item=<?= $newProd['id'] ?>" class="products__link">
+                      <img src="assets/img/products/<?= $newProd['photo'] ?>" alt="<?= $newProd['name'] ?>" class="news__slider-img" />
                     </a>
                     <div class="news__slider-info">
-                      <a href="/catalog/product/?item=<?=$newProd['id']?>" class="products__link">
-                        <p class="news__slider-name text"><?=$newProd['name']?></p>
+                      <a href="/catalog/product/?item=<?= $newProd['id'] ?>" class="products__link">
+                        <p class="news__slider-name text"><?= $newProd['name'] ?></p>
                       </a>
-                      <p class="news__slider-price"><?=$newProd['price']?> руб.</p>
+                      <p class="news__slider-price"><?= $newProd['price'] ?> руб.</p>
                     </div>
                     <div class="buy__wrap">
-                      <button class="buy__favorites">
+                      <button class="buy__favorites" data-fav-prod-id="<?= $newProd['id'] ?>">
                         В избранное
                         <img src="/assets/img/other/heart.svg" alt="heart" class="buy__favorites-img" />
                       </button>
@@ -149,7 +149,7 @@ $newProds = $data->getNewProducts();
                       <input type="text" placeholder="Ваше имя" class="form__list-input newsletter-name" required />
                     </li>
                     <li class="form__list-item">
-                      <input type="email" placeholder="Ваш email" class="form__list-input newsletter-email" required/>
+                      <input type="email" placeholder="Ваш email" class="form__list-input newsletter-email" required />
                     </li>
                     <li class="form__list-item">
                       <input type="submit" value="Отправить" class="form__list-input form__list-submit" />
@@ -164,4 +164,5 @@ $newProds = $data->getNewProducts();
     </section>
   </main>
   <script src="/ajax/newsletterSender.js"></script>
+  <script src="/ajax/favoriteSender.js"></script>
 <?php require 'footer.php';

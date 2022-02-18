@@ -10,8 +10,51 @@ $cart = $data->getCart($_SESSION['User']['Login']);
 $count = $data->getCartCount($_SESSION['User']['Login']);
 $amount = $data->getCartAmount($_SESSION['User']['Login']);
 
-require $_SERVER['DOCUMENT_ROOT'] . '/header.php'; 
+if (isset($_POST['orderSubmit'])) {
+  $paymentMethod = 'Наличные';
+  $isAnon = 'Нет';
+  if ($_POST['card'] == 'on') {
+    $paymentMethod = 'По карте';
+  }
 
+  if ($_POST['recipient'] == 'on') {
+    $isAnon = 'Да';
+  }
+
+  $name = htmlspecialchars(trim($_POST['name']));
+  $phone = htmlspecialchars(trim($_POST['phone']));
+  $email = htmlspecialchars(trim($_POST['email']));
+  $addr = htmlspecialchars(trim($_POST['address']));
+  $flat = htmlspecialchars(trim($_POST['flat']));
+  $date = htmlspecialchars(trim($_POST['date']));
+  $startTime = htmlspecialchars(trim($_POST['startTime']));
+  $endTime = htmlspecialchars(trim($_POST['endTime']));
+  $recName = htmlspecialchars(trim($_POST['recName']));
+  $recPhone = htmlspecialchars(trim($_POST['recPhone']));
+  $userId = $data->getUserId($_SESSION['User']['Login']);
+
+  $data->handleNewOrder(
+    $name,
+    $phone,
+    $email,
+    $addr,
+    $flat,
+    $date,
+    $startTime,
+    $endTime,
+    $isAnon,
+    $recName,
+    $recPhone,
+    $paymentMethod,
+    $amount,
+    $userId
+  );
+
+  $data->clearCart($userId);
+  header('Location: /cart/');
+}
+
+require $_SERVER['DOCUMENT_ROOT'] . '/header.php'; 
 ?>
 <main>
   <section class="basket">
@@ -108,7 +151,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <form class="basket-data__wrap">
+          <form class="basket-data__wrap" id="order-maker" method="POST">
             <!-- list  -->
             <ul class="basket-data__list">
               <!-- item  -->
@@ -119,13 +162,13 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                 </p>
                 <!-- title end -->
                 <!-- field  -->
-                <input type="text" name="" id="basket-name" class="basket-data__list-field basket-data__list-field--contact" placeholder="Имя" />
+                <input type="text" required name="name" id="basket-name" class="basket-data__list-field basket-data__list-field--contact" placeholder="Имя" />
                 <!-- field end -->
                 <!-- field  -->
-                <input type="text" name="" id="basket-phone" class="basket-data__list-field basket-data__list-field--contact" placeholder="+7 (999) 999 99 99" />
+                <input type="text" required name="phone" id="basket-phone" class="basket-data__list-field basket-data__list-field--contact" placeholder="+7 (999) 999 99 99" />
                 <!-- field end -->
                 <!-- field  -->
-                <input type="text" name="" id="basket-email" class="basket-data__list-field basket-data__list-field--contact" placeholder="E-mail" />
+                <input type="text" required name="email" id="basket-email" class="basket-data__list-field basket-data__list-field--contact" placeholder="E-mail" />
                 <!-- field end -->
               </li>
               <!-- item end -->
@@ -137,10 +180,10 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                 <!-- field  -->
                 <!-- wrpa  -->
                 <div class="basket-data__list-field-wrap">
-                  <input type="text" name="" id="" class="basket-data__list-field basket-data__list-field--delivery" placeholder="Адрес, улица и дом" />
+                  <input type="text" required  name="address" id="address" class="basket-data__list-field basket-data__list-field--delivery" placeholder="Адрес, улица и дом" />
                   <!-- field end -->
                   <!-- field  -->
-                  <input type="text" name="" id="" class="basket-data__list-field basket-data__list-field--delivery" placeholder="Квартира/офис" />
+                  <input type="text" required name="flat" id="flat" class="basket-data__list-field basket-data__list-field--delivery" placeholder="Квартира/офис" />
                   <!-- field end -->
                 </div>
                 <!-- wrpa end -->
@@ -152,7 +195,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                 <p class="basket-data__list-title">Дата и время</p>
                 <!-- title end -->
                 <!-- field  -->
-                <input type="date" name="" id="" class="basket-data__list-field basket-data__list-field--date" />
+                <input type="date" required name="date" id="date" class="basket-data__list-field basket-data__list-field--date" />
                 <!-- field end -->
                 <!-- time  -->
                 <div class="basket-data__list-time">
@@ -160,7 +203,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                   <label for="" class="basket-data__list-label">
                     С:
                     <!-- field  -->
-                    <input type="time" name="" id="" class="basket-data__list-field" placeholder="08:00" />
+                    <input type="time" name="startTime" id="startTime" class="basket-data__list-field" placeholder="08:00" />
                     <!-- field end -->
                   </label>
                   <!-- label end -->
@@ -168,7 +211,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                   <label for="" class="basket-data__list-label">
                     До:
                     <!-- field  -->
-                    <input type="time" name="" id="" class="basket-data__list-field" placeholder="18:00" />
+                    <input type="time" name="endTime" id="endTime" class="basket-data__list-field" placeholder="18:00" />
                     <!-- field end -->
                   </label>
                   <!-- label end -->
@@ -185,7 +228,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                 <div class="basket-data__list-agree">
                   <!-- wrap  -->
                   <div class="basket-data__list-agree-btn box-basket-wrap">
-                    <input type="checkbox" name="" id="" class="basket-data__list-agree-box box-basket" />
+                    <input type="checkbox" name="recipient" id="recipient" class="basket-data__list-agree-box box-basket" />
                   </div>
                   <!-- wrap end -->
                   <!-- text  -->
@@ -196,10 +239,10 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                 </div>
                 <!-- anon end -->
                 <!-- field  -->
-                <input type="text" name="" id="basket-pol" class="basket-data__list-field basket-data__list-field--name-contact" placeholder="Имя получателя" />
+                <input type="text" name="recName" id="basket-pol" class="basket-data__list-field basket-data__list-field--name-contact" placeholder="Имя получателя" />
                 <!-- field end -->
                 <!-- field  -->
-                <input type="text" name="" id="basket-phone-pol" class="basket-data__list-field basket-data__list-field--phone-contact" placeholder="Телефон получателя" />
+                <input type="text" name="recPhone" id="basket-phone-pol" class="basket-data__list-field basket-data__list-field--phone-contact" placeholder="Телефон получателя" />
                 <!-- field end -->
               </li>
               <!-- item end -->
@@ -210,17 +253,17 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                 <!-- title end -->
                 <!-- label  -->
                 <label for="" class="basket-data__list-label basket-data__list-label--radio">
-                  <input type="radio" class="basket-data__list-radio" name="" id="" />
+                  <input type="radio" class="basket-data__list-radio" name="cash" id="cash" />
                   Наличными при получении
                 </label>
                 <!-- label end -->
                 <!-- label  -->
                 <label for="" class="basket-data__list-label basket-data__list-label--radio">
-                  <input type="radio" class="basket-data__list-radio" name="" id="" />
-                  Наличными при получении
+                  <input type="radio" class="basket-data__list-radio" name="card" id="card" />
+                  Картой
                 </label>
                 <!-- label end -->
-                <input type="submit" value="Оформить заказ" class="basket-data__list-sub" />
+                <input type="submit" name="orderSubmit" value="Оформить заказ" class="basket-data__list-sub" />
               </li>
               <!-- item end -->
             </ul>
@@ -231,4 +274,5 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
     </div>
   </section>
 </main>
+<script src="/assets/js/basket.js"></script>
 <?php require $_SERVER['DOCUMENT_ROOT'] . '/footer.php';

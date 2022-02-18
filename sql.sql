@@ -13,6 +13,9 @@ select * from users;
 insert into users(login, password, name)
 values ('customer', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3','Покупатель');
 
+
+insert into users(login,password,name,access) values ('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'Администратор', 'admin');
+
 create table user_cart
 (
 id int primary key auto_increment,
@@ -123,9 +126,6 @@ price int not null,
 photo varchar(255)
 );
 
-alter table boquets
-add isNew bool, add isHit bool, add lenght varchar(10), add forWho varchar(25);
-
 insert into boquets(name, price, photo, isNew, isHit, lenght, forWho)
 values	('Букет "Нежный"','2000','1.png', 1, 1, '35см', 'Девушке'),
 		('Букет "Хороший"','10000','2.png', 0, 1, '30см', null),
@@ -145,7 +145,51 @@ create table phone_queries
 (
 id int primary key auto_increment,
 clientName varchar(25) not null,
-clientPhone varchar(25) not null
+clientPhone varchar(25) not null,
+date date not null,
+status varchar(25) not null
 );
 
 select * from phone_queries;
+
+create table orders
+(
+id int primary key auto_increment,
+name varchar(30) not null,
+phone varchar(20) not null,
+email varchar(255) not null,
+address varchar(255) not null,
+flat varchar(10),
+date date,
+startTime varchar(10),
+endTime varchar(10),
+isAnonym boolean,
+recName varchar(30),
+recPhone varchar(20),
+payment varchar(30),
+amount int not null
+);
+
+create view getOrders
+(id, name, phone, email, address, flat, date, startTime, endTime, isAnonym, recName, recPhone, payment, amount, userName)
+as
+	select o.id, o.name, phone, email, address, flat, date, startTime, endTime, isAnonym, recName, recPhone, payment, amount, u.name from orders as o inner join users as u on o.userId=u.id;
+
+select * from getOrders;
+
+create table user_fav
+(
+id int primary key auto_increment,
+user int not null,
+boquet int not null,
+constraint fk_user_fav foreign key (user) references users(id),
+constraint fk_bq_fav foreign key (boquet) references boquets(id)
+);
+
+create view getFavProds
+(id, userId, name, price, photo)
+as
+	select b.id, uf.user, b.name, b.price, b.photo
+    from user_fav as uf inner join boquets as b on uf.boquet=b.id;
+    
+select * from getFavProds;

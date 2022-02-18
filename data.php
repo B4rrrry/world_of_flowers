@@ -17,6 +17,13 @@ class Data
     return $this->db->query('SELECT * FROM `boquets`');
   }
 
+
+  public function getUserId($userLogin): int
+  {
+    $res = $this->db->query('SELECT `id` FROM `users` WHERE `login` = :login', ['login' => $userLogin]);
+    return $res[0]['id'];
+  }
+
   public function getHitProducts(): array
   {
     return $this->db->query('SELECT `id`, `name`, `photo`, `price` FROM `boquets` WHERE `isHit` = 1');
@@ -49,14 +56,16 @@ class Data
     );
   }
 
-  public function getCartCount(string $login) {
+  public function getCartCount(string $login): array
+  {
     return $this->db->query(
       'SELECT count(`count`) as `count` FROM `getCart` WHERE `login` = :login',
       ['login' => $login]
     );
   }
 
-  public function getCartAmount(string $login) {
+  public function getCartAmount(string $login): int
+  {
     $prodPrices = $this->db->query(
       'SELECT `price` FROM `getCart` WHERE `login` = :login',
       ['login' => $login]
@@ -69,5 +78,63 @@ class Data
     }
 
     return $amount;
+  }
+
+  public function getFlowers(): array
+  {
+    return $this->db->query('SELECT `name` FROM `flowers`');
+  }
+
+  public function getPhoneQueries($sortBy = 'id', $orderBy = 'desc')
+  {
+    return $this->db->query("SELECT * FROM `phone_queries` ORDER BY $sortBy $orderBy");
+  }
+
+  public function getOrders($sortBy = 'id', $orderBy='desc') {
+    return $this->db->query("SELECT * FROM `getOrders` ORDER BY $sortBy $orderBy");
+  }
+
+  public function handleNewOrder(
+    $name,
+    $phone,
+    $email,
+    $address,
+    $flat,
+    $date,
+    $startTime,
+    $endTime,
+    $isAnon,
+    $recName,
+    $recPhone,
+    $paymentMethod,
+    $amount,
+    $userId
+  ) {
+    $query = 'INSERT INTO `orders`(
+        `name`,`phone`,`email`,`address`,`flat`,`date`, `startTime`, 
+        `endTime`,`isAnonym`,`recName`,`recPhone`,`payment`,`amount`, `userId`)
+        VALUES (:name, :phone, :email, :address, :flat, :date, 
+        :startTime, :endTime, :isAnon, :recName, :recPhone, :payment, :amount, :userId)';
+    $params = [
+      'name' => $name,
+      'phone' => $phone,
+      'email' => $email,
+      'address' => $address,
+      'flat' => $flat,
+      'date' => $date,
+      'startTime' => $startTime,
+      'endTime' => $endTime,
+      'isAnon' => $isAnon,
+      'recName' => $recName,
+      'recPhone' => $recPhone,
+      'payment' => $paymentMethod,
+      'amount' => $amount,
+      'userId' => $userId
+    ];
+    $this->db->query($query, $params);
+  }
+
+  public function clearCart($userId) {
+    $this->db->query('DELETE FROM `user_cart` WHERE `user` = :id', ['id' => $userId]);
   }
 }
