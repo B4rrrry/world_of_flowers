@@ -1,4 +1,4 @@
-let sender = document.getElementById('modal__request-sub');
+let sender = document.getElementById('buySender');
 let innerResult = document.querySelector('.product__price-wrap');
 
 sender.addEventListener('click', function(event) { 

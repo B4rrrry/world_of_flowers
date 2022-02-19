@@ -1,6 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/data.php';
-var_dump($_POST);
+
 if ($_SESSION['User']['Access'] == 'admin') {
   header('Location: /admin/requests/');
 } else {

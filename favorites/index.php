@@ -53,13 +53,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                     <!-- bottom  -->
                     <div class="favorites-list__bottom">
                       <!-- del  -->
-                      <button class="favorites-list__del">
+                      <button class="favorites-list__del del-btn" data-favItemId="<?=$fav['id']?>" >
                         <img src="/assets/img/fav/del.svg" alt="el">
                         Удалить
                       </button>
                       <!-- del end -->
                       <!-- basket  -->
-                      <button class="favorites-list__basket">
+                      <button class="favorites-list__basket fav-add-btn" data-favItemId="<?=$fav['id']?>">
                         Добавить в корзину
                       </button>
                       <!-- basket end -->
@@ -78,5 +78,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
     </div>
   </section>
 </main>
+<script src="/ajax/favAddToCart.js"></script>
+<script src="/ajax/favDel.js"></script>
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';

@@ -231,7 +231,7 @@ var_dump($_POST);
                       <img src="/assets/img/other/heart.svg" alt="heart" class="buy__favorites-img" />
                     </button>
                     <div class="buy__wrap">
-                      <button class="buy__basket">Добавить в корзину</button>
+                      <a href="/catalog/product/?item=<?= $product['id'] ?>" class="buy__basket">Подробнее</a>
                     </div>
                 </li>
               <?php endforeach; ?>

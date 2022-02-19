@@ -122,7 +122,7 @@ $newProds = $data->getNewProducts();
                         В избранное
                         <img src="/assets/img/other/heart.svg" alt="heart" class="buy__favorites-img" />
                       </button>
-                      <button class="buy__btn">Купить букет</button>
+                      <a href="/catalog/product/?item=<?= $newProd['id'] ?>" class="buy__btn">Купить букет</a>
                     </div>
                   </div>
                 <?php endforeach; ?>
