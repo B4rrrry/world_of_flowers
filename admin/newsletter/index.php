@@ -14,7 +14,7 @@ $letters = $db->query('SELECT * FROM newsletter');
     <div class="row">
       <div class="col-lg-12">
         <h1 class="window-title">
-          Администрирование / <span>Заявки на звонок</span>
+          Администрирование / <span>Список подписчиков</span>
         </h1>
         <div class="window-wrapper">
         </div>

@@ -7,7 +7,7 @@ class Db
 
   private function __construct()
   {
-    $this->pdo = new PDO('mysql:host=localhost; port=3307; dbname=flowers', 'root', '');
+    $this->pdo = new PDO('mysql:host=localhost;  dbname=flowers', 'root', 'root');
     $this->pdo->exec('SET NAMES UTF8');
   }
 

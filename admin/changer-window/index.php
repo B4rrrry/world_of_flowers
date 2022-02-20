@@ -1,6 +1,5 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/data.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/header.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/loader.php';
 
@@ -48,8 +47,9 @@ if (isset($_POST['add-submit'])) {
   Loader::UploadFile($_SERVER['DOCUMENT_ROOT'] . '/assets/img/products/', 'add-submit', 'photo');
   header('Location: ' . $_SERVER['REQUEST_URI']);
 }
-
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/header.php';
 ?>
+
 <section class="window">
   <div class="container-fluid">
     <div class="row">
