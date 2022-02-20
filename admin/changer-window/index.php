@@ -1,6 +1,7 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/header.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/data.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/header.php';
+
 require_once $_SERVER['DOCUMENT_ROOT'] . '/loader.php';
 
 $db = Db::getInstance();

@@ -1,6 +1,6 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/header.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/data.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/header.php';
 
 $data = new Data();
 if (isset($_POST['select-sort-first']) && isset($_POST['select-sort-second'])) {
@@ -67,13 +67,13 @@ if (isset($_POST['select-sort-first']) && isset($_POST['select-sort-second'])) {
               <table>
                 <tr>
                   <td>
-                    Номер
+                   №
                   </td>
                   <td>
                     Имя
                   </td>
                   <td>
-                    Телефон
+                    Тел.
                   </td>
                   <td>
                     Email
@@ -97,19 +97,22 @@ if (isset($_POST['select-sort-first']) && isset($_POST['select-sort-second'])) {
                     Анонимно
                   </td>
                   <td>
-                    Имя получателя
+                   Получатель
                   </td>
                   <td>
                     Телефон получателя
                   </td>
                   <td>
-                    Способ оплаты
+                    Оплата
                   </td>
                   <td>
                     Сумма
                   </td>
                   <td>
-                    Имя заказчика
+                    Заказчик
+                  </td>
+                  <td>
+                    Статус
                   </td>
                 </tr>
                 <tr>
@@ -158,6 +161,9 @@ if (isset($_POST['select-sort-first']) && isset($_POST['select-sort-second'])) {
                   <td>
                     <?= $order['userName'] ?>
                   </td>
+                  <td class="order-status" data-orderId="<?=$order['id']?>">
+                    <?=$order['status']?>
+                  </td>
                 </tr>
               </table>
             </div>
@@ -167,6 +173,7 @@ if (isset($_POST['select-sort-first']) && isset($_POST['select-sort-second'])) {
     </div>
   </div>
 </section>
+<script src="/ajax/ordersStatus.js"></script>
 </body>
 
 </html>

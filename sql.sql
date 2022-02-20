@@ -182,7 +182,8 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `recPhone`,
  1 AS `payment`,
  1 AS `amount`,
- 1 AS `userName`*/;
+ 1 AS `userName`,
+ 1 AS `status`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -211,7 +212,7 @@ CREATE TABLE `newsletter` (
   `client_name` varchar(25) NOT NULL,
   `email` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -220,7 +221,7 @@ CREATE TABLE `newsletter` (
 
 LOCK TABLES `newsletter` WRITE;
 /*!40000 ALTER TABLE `newsletter` DISABLE KEYS */;
-INSERT INTO `newsletter` VALUES (1,'test','test@test'),(2,'Дмитрий','dmitry@mail.ru');
+INSERT INTO `newsletter` VALUES (1,'test','test@test'),(2,'Дмитрий','dmitry@mail.ru'),(3,'ывпывпвыпывп','sdgsdgsdg@dsgsdgs');
 /*!40000 ALTER TABLE `newsletter` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -247,6 +248,7 @@ CREATE TABLE `orders` (
   `payment` varchar(30) DEFAULT NULL,
   `amount` int NOT NULL,
   `userId` int DEFAULT NULL,
+  `status` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user` (`userId`),
   CONSTRAINT `fk_user` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
@@ -259,7 +261,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (2,'Тестовый заказ1','+7 ( 923 ) 6896527','leseja1001@douwx.com','Каво','Непонел','2022-03-12','04:14','','Нет','','','По карте',33550,1),(3,'sdgsdg','sdgsdgs','sdgsdg','sdgsdgddg','sdgsg','2022-02-23','','','Да','sdgsgsg','sdgsdgs','По карте',33550,1);
+INSERT INTO `orders` VALUES (2,'Тестовый заказ1','+7 ( 923 ) 6896527','leseja1001@douwx.com','Каво','Непонел','2022-03-12','04:14','','Нет','','','По карте',33550,1,'Обработан'),(3,'sdgsdg','sdgsdgs','sdgsdg','sdgsdgddg','sdgsg','2022-02-23','','','Да','sdgsgsg','sdgsdgs','По карте',33550,1,'Обработан');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -424,7 +426,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`127.0.0.1` SQL SECURITY DEFINER */
-/*!50001 VIEW `getorders` (`id`,`name`,`phone`,`email`,`address`,`flat`,`date`,`startTime`,`endTime`,`isAnonym`,`recName`,`recPhone`,`payment`,`amount`,`userName`) AS select `o`.`id` AS `id`,`o`.`name` AS `name`,`o`.`phone` AS `phone`,`o`.`email` AS `email`,`o`.`address` AS `address`,`o`.`flat` AS `flat`,`o`.`date` AS `date`,`o`.`startTime` AS `startTime`,`o`.`endTime` AS `endTime`,`o`.`isAnonym` AS `isAnonym`,`o`.`recName` AS `recName`,`o`.`recPhone` AS `recPhone`,`o`.`payment` AS `payment`,`o`.`amount` AS `amount`,`u`.`name` AS `name` from (`orders` `o` join `users` `u` on((`o`.`userId` = `u`.`id`))) */;
+/*!50001 VIEW `getorders` (`id`,`name`,`phone`,`email`,`address`,`flat`,`date`,`startTime`,`endTime`,`isAnonym`,`recName`,`recPhone`,`payment`,`amount`,`userName`,`status`) AS select `o`.`id` AS `id`,`o`.`name` AS `name`,`o`.`phone` AS `phone`,`o`.`email` AS `email`,`o`.`address` AS `address`,`o`.`flat` AS `flat`,`o`.`date` AS `date`,`o`.`startTime` AS `startTime`,`o`.`endTime` AS `endTime`,`o`.`isAnonym` AS `isAnonym`,`o`.`recName` AS `recName`,`o`.`recPhone` AS `recPhone`,`o`.`payment` AS `payment`,`o`.`amount` AS `amount`,`u`.`name` AS `name`,`o`.`status` AS `status` from (`orders` `o` join `users` `u` on((`o`.`userId` = `u`.`id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -456,4 +458,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-19 15:43:35
+-- Dump completed on 2022-02-21  0:01:24

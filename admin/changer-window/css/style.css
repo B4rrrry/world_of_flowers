@@ -159,7 +159,7 @@ select {
 }
 
 .window-wrapper .change-form .select-wrapper.first {
-  width: 215px;
+  width: 220px;
 }
 
 .window-wrapper .change-form .select-wrapper.first::after {
@@ -175,7 +175,7 @@ select {
 }
 
 .window-wrapper .change-form .select-wrapper.second {
-  width: 166px;
+  width: 150px;
 }
 
 .window-wrapper .change-form .select-wrapper.second::after {
@@ -188,21 +188,6 @@ select {
   height: 88%;
   top: 2px;
   right: 6px;
-}
-
-.window-wrapper .change-form .select-wrapper::before {
-  content: "";
-  display: block;
-  position: absolute;
-  background-image: url(../img/Vector.svg);
-  background-repeat: no-repeat;
-  background-color: white;
-  -webkit-background-size: 20px 8px;
-          background-size: 20px 8px;
-  width: 20px;
-  height: 20px;
-  top: 15px;
-  right: 13px;
 }
 
 .window-wrapper .change-form .description-change {
@@ -263,21 +248,6 @@ select {
   height: 88%;
   top: 2px;
   right: 3px;
-}
-
-.window-wrapper .form-delete .select-wrapper::before {
-  content: "";
-  display: block;
-  position: absolute;
-  background-image: url(../img/Vector.svg);
-  background-repeat: no-repeat;
-  background-color: white;
-  -webkit-background-size: 20px 8px;
-          background-size: 20px 8px;
-  width: 20px;
-  height: 20px;
-  top: 15px;
-  right: 13px;
 }
 
 .window-wrapper .form-delete .delete-submit {

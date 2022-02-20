@@ -1,6 +1,7 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/header.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/data.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/header.php';
+
 
 $data = new Data();
 if (isset($_POST['select-sort-first']) && isset($_POST['select-sort-second'])) {
@@ -64,23 +65,23 @@ if (isset($_POST['select-sort-first']) && isset($_POST['select-sort-second'])) {
               <li class="queries-item" style="margin-top: 12px;">
                 <ul class="queries-data" style="display: flex; list-style: none;">
                   <li class="queries-data__item">
-                    <h4 class="queries-data__header">Говно</h4>
+                    <h4 class="queries-data__header">Номер</h4>
                     <p class="queries-data__text queries-data__id"><?=$q['id']?></p>
                   </li>
                   <li class="queries-data__item">
-                    <h4 class="queries-data__header">Залупа</h4>
+                    <h4 class="queries-data__header">Имя</h4>
                     <p class="queries-data__text"><?=$q['clientName']?></p>
                   </li>
                   <li class="queries-data__item">
-                    <h4 class="queries-data__header">Пенис</h4>
+                    <h4 class="queries-data__header">Телефон</h4>
                     <p class="queries-data__text"><?=$q['clientPhone']?></p>
                   </li>
                   <li class="queries-data__item">
-                    <h4 class="queries-data__header">Хер</h4>
+                    <h4 class="queries-data__header">Дата</h4>
                     <p class="queries-data__text"><?=$q['date']?></p>
                   </li>
                   <li class="queries-data__item">
-                    <h4 class="queries-data__header">Пизда</h4>
+                    <h4 class="queries-data__header">Статус</h4>
                     <p class="queries-data__text queries-data__status" data-queryID="<?=$q['id']?>"data-queryStatus="<?=$q['status']?>"><?=$q['status']?></p>
                   </li>
                 </ul>

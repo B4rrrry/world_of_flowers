@@ -40,7 +40,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                 </ul>
                 <div class="product__price-wrap">
                   <p class="product__price"><?= $data['price'] ?> руб.</p>
-                  <button class="buy__btn" id="buySender" data-item="<?=$data['id']?>">Купить букет</button>
+                  <button class="buy__btn" id="buySender" data-item="<?=$data['id']?>">В корзину</button>
                 </div>
               </div>
             <?php endforeach; ?>

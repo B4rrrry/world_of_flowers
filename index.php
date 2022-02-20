@@ -81,6 +81,7 @@ $newProds = $data->getNewProducts();
                     <p class="hits__slider-price"><?= $hitProd['price'] ?></p>
                   </div>
                   <div class="buy__wrap buy__wrap--main">
+                  <a href="/catalog/product/?item=<?= $hitProd['id'] ?>" class="buy__btn buy__btn--link" tabindex="0">Перейти к букету</a>
                     <button class="buy__favorites " data-fav-prod-id="<?= $hitProd['id'] ?>">
                       <img src="/assets/img/other/heart.svg" alt="heart" class="buy__favorites-img" />
                     </button>
@@ -117,13 +118,12 @@ $newProds = $data->getNewProducts();
                       </a>
                       <p class="news__slider-price"><?= $newProd['price'] ?> руб.</p>
                     </div>
-                    <div class="buy__wrap">
-                      <button class="buy__favorites" data-fav-prod-id="<?= $newProd['id'] ?>">
-                        В избранное
-                        <img src="/assets/img/other/heart.svg" alt="heart" class="buy__favorites-img" />
-                      </button>
-                      <a href="/catalog/product/?item=<?= $newProd['id'] ?>" class="buy__btn">Купить букет</a>
-                    </div>
+                    <div class="buy__wrap buy__wrap--main">
+                  <a href="/catalog/product/?item=<?= $hitProd['id'] ?>" class="buy__btn buy__btn--link" tabindex="0">Перейти к букету</a>
+                    <button class="buy__favorites " data-fav-prod-id="<?= $hitProd['id'] ?>">
+                      <img src="/assets/img/other/heart.svg" alt="heart" class="buy__favorites-img" />
+                    </button>
+                  </div>
                   </div>
                 <?php endforeach; ?>
               </div>
@@ -163,6 +163,7 @@ $newProds = $data->getNewProducts();
       </div>
     </section>
   </main>
+</div>
   <script src="/ajax/newsletterSender.js"></script>
   <script src="/ajax/favoriteSender.js"></script>
-<?php require 'footer.php';
+<?php require 'index-footer.php';

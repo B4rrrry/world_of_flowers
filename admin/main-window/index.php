@@ -1,5 +1,7 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/data.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/header.php';
+
 ?>
 <section class="window">
   <div class="container-fluid">

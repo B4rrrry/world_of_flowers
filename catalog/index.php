@@ -18,7 +18,7 @@ var_dump($_POST);
         <div class="col-lg-12">
           <div class="products__wrap wrap">
             <!-- filters  -->
-            <form action="<?=$_SERVER['PHP_SELF']?>" method="post" class="products__filter filter">
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" class="products__filter filter">
               <!-- list  -->
               <ul class="filter-list">
                 <!-- item  -->
@@ -207,12 +207,12 @@ var_dump($_POST);
                   <p class="filter-list__title">Цветы в составе</p>
                   <ul class="filter-list__box-list box-list">
                     <?php foreach ($flowers as $flower) : ?>
-                    <li class="box-list__item box-list__item--comp">
-                      <div class="box-list__box-wrap">
-                        <input type="checkbox" data-flower-in="<?=$flower['name']?>" class="checkbox-flower box-list__box box-list__box--checkbox" />
-                      </div>
-                      <label for="" class="box-list__label"><?=$flower['name']?></label>
-                    </li>
+                      <li class="box-list__item box-list__item--comp">
+                        <div class="box-list__box-wrap">
+                          <input type="checkbox" data-flower-in="<?= $flower['name'] ?>" class="checkbox-flower box-list__box box-list__box--checkbox" />
+                        </div>
+                        <label for="" class="box-list__label"><?= $flower['name'] ?></label>
+                      </li>
                     <?php endforeach; ?>
                   </ul>
                 </li>
@@ -226,13 +226,15 @@ var_dump($_POST);
                     <img src="/assets/img/products/<?= $product['photo'] ?>" alt="<?= $product['name'] ?>" class="products__list-img" />
                     <p class="products__list-name"><?= $product['name'] ?></p>
                   </a>
-                  <p class="products__list-price"><?= $product['price'] ?></p>
+                  <div class="products__list-info">
+                    <p class="products__list-price"><?= $product['price'] ?> руб.</p>
                     <button class="buy__favorites" data-fav-prod-id="<?= $product['id'] ?>">
                       <img src="/assets/img/other/heart.svg" alt="heart" class="buy__favorites-img" />
                     </button>
-                    <div class="buy__wrap">
-                      <a href="/catalog/product/?item=<?= $product['id'] ?>" class="buy__basket">Подробнее</a>
-                    </div>
+                  </div>
+                  <div class="buy__wrap">
+                    <a href="/catalog/product/?item=<?= $product['id'] ?>" class="buy__basket">Подробнее</a>
+                  </div>
                 </li>
               <?php endforeach; ?>
             </ul>
@@ -276,7 +278,7 @@ var_dump($_POST);
               <li class="pagination-list__item">
                 <!-- link  -->
                 <a href="#" class="pagination-list__link pagination-list__link--arrow">Следующая страница
-                  <img src="assets/img/products/arrow.svg" alt=">" class="pagination-list__link-img" />
+                  <img src="../assets/img/products/arrow.svg" alt=">" class="pagination-list__link-img" />
                 </a>
                 <!-- link end -->
               </li>
@@ -289,6 +291,5 @@ var_dump($_POST);
     </div>
   </section>
 </main>
-<script src="/assets/js/filter.js"></script>
-<script src="/ajax/favoriteSender.js"></script>
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
+
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/catalog-footer.php';
