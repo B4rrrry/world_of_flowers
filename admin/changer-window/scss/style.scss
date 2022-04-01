@@ -229,3 +229,18 @@ select {
         }
     }
 }
+.add {
+    &-area {
+        width: 300px;
+        resize: none;
+        display: block;
+        margin-top: 5px;
+        padding-left: 10px;
+        font-size: 18px;
+        &-label {
+            display: block;
+            margin-top: 10px;
+            font-size: 20px;
+        }
+    }
+}

@@ -75,6 +75,7 @@ function basketInit() {
       count += Number(countItem.textContent)
     })
     totalReq.textContent = sum;
+    totalPrice.textContent = sum;
     countPrice.textContent = count;
   }
   function discount(value) {

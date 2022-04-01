@@ -47,7 +47,7 @@ $newProds = $data->getNewProducts();
                   10 лет мы радуем вас и ваших близких свежими букетами.
                 </p>
                 <div class="about__video">
-                  <a href="#" class="about__video-link"><img src="/assets/img/about/glas.svg" alt="play" class="about__video-img" /></a>
+                  <a href="https://www.youtube.com/watch?v=95cazzinVkU" target="_blank" class="about__video-link"><img src="/assets/img/about/glas.svg" alt="play" class="about__video-img" /></a>
                   <p class="about__video-text">
                     Посмотрите небольшое видео о нашем салоне
                   </p>

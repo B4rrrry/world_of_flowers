@@ -17,7 +17,6 @@ class Data
     return $this->db->query('SELECT * FROM `boquets`');
   }
 
-
   public function getUserId($userLogin): int
   {
     $res = $this->db->query('SELECT `id` FROM `users` WHERE `login` = :login', ['login' => $userLogin]);
@@ -36,7 +35,7 @@ class Data
 
   public function getProductData(int $id): array
   {
-    $query = 'SELECT `id`, `name`, `price`, `photo` FROM `boquets` WHERE id = :id';
+    $query = 'SELECT `id`, `name`, `price`, `photo`, `description` FROM `boquets` WHERE id = :id';
     $params = ['id' => $id];
     return $this->db->query($query, $params);
   }
@@ -51,7 +50,7 @@ class Data
   public function getCart(string $login): ?array
   {
     return $this->db->query(
-      'SELECT `name`, `price`, `photo`, `count` FROM `getCart` WHERE `login` = :login',
+      'SELECT `boquet`,`name`, `price`, `photo`, `count` FROM `getCart` WHERE `login` = :login',
       ['login' => $login]
     );
   }
@@ -112,9 +111,9 @@ class Data
   ) {
     $query = 'INSERT INTO `orders`(
         `name`,`phone`,`email`,`address`,`flat`,`date`, `startTime`, 
-        `endTime`,`isAnonym`,`recName`,`recPhone`,`payment`,`amount`, `userId`)
+        `endTime`,`isAnonym`,`recName`,`recPhone`,`payment`,`amount`, `userId`,`status`)
         VALUES (:name, :phone, :email, :address, :flat, :date, 
-        :startTime, :endTime, :isAnon, :recName, :recPhone, :payment, :amount, :userId)';
+        :startTime, :endTime, :isAnon, :recName, :recPhone, :payment, :amount, :userId, :status)';
     $params = [
       'name' => $name,
       'phone' => $phone,
@@ -129,7 +128,8 @@ class Data
       'recPhone' => $recPhone,
       'payment' => $paymentMethod,
       'amount' => $amount,
-      'userId' => $userId
+      'userId' => $userId,
+      'status' => 'Не обработан'
     ];
     $this->db->query($query, $params);
   }

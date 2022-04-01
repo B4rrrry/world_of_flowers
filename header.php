@@ -127,6 +127,9 @@
                   <a href="/auth/" class="header-btns__btn ">
                      Войти
                   </a>
+                  <a href="/reg/" class="header-btns__btn ">
+                     Регистрация
+                  </a>
                 <?php endif; ?>
                 </li>
                 <?php if (isset($_SESSION['User'])) : ?>

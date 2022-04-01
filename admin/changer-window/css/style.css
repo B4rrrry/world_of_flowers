@@ -23,40 +23,9 @@ select {
 input[type="text"],
 select {
   border: 2px solid #000000;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   background: transparent;
   display: block;
-}
-
-input::-webkit-input-placeholder,
-option,
-select {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  font-family: "Montserrat", sans-serif;
-}
-
-input:-ms-input-placeholder,
-option,
-select {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  font-family: "Montserrat", sans-serif;
-}
-
-input::-ms-input-placeholder,
-option,
-select {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  font-family: "Montserrat", sans-serif;
 }
 
 input::placeholder,
@@ -129,9 +98,6 @@ select {
 }
 
 .window-wrapper .change-form {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   margin-bottom: 40px;
 }
@@ -217,9 +183,6 @@ select {
 }
 
 .window-wrapper .form-delete {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   margin-bottom: 40px;
 }
@@ -269,9 +232,6 @@ select {
 }
 
 .window-wrapper .form-add {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -296,5 +256,20 @@ select {
   outline: none;
   display: block;
   margin-top: 16px;
+}
+
+.add-area {
+  width: 300px;
+  resize: none;
+  display: block;
+  margin-top: 5px;
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.add-area-label {
+  display: block;
+  margin-top: 10px;
+  font-size: 20px;
 }
 /*# sourceMappingURL=style.css.map */

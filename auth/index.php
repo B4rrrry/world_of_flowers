@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
       'Name' => $data[0]['name'],
       'Access' => $data[0]['access']
     ];
-    header('Location: /cart/');
+    header('Location: /catalog/');
   }
 }
 
@@ -124,6 +124,11 @@ if (isset($_POST['submit'])) {
                      Войти
                     </a>
                 </li>
+                <li class="header-btns__item">
+                    <a href="/reg/" class="header-btns__btn ">
+                     Регистрация
+                    </a>
+                </li>
               <!-- item end  -->
             </ul>
             <!-- btns end -->
@@ -147,11 +152,11 @@ if (isset($_POST['submit'])) {
       </div>
     </div>
   </header>
-<form action="<?=$_SERVER['PHP_SELF']?>" style="padding-top: 150px; display: flex; flex-direction: column; width: 250px" method="post">
-  <label for="login">Ваш логин</label>
-  <input type="text" name="login" id="login">
-  <label for="password">Ваш пароль</label>
-  <input type="password" name="password" id="password">
-  <input type="submit" name="submit" value="Войти">
+<form action="<?=$_SERVER['PHP_SELF']?>" class="auth__form" method="post">
+  <label for="login" class="auth__label" >Ваш логин</label>
+  <input type="text" name="login" class="auth__login" id="login">
+  <label for="password" class="auth__label" >Ваш пароль</label>
+  <input type="password" name="password" class="auth__pass" id="password">
+  <input type="submit" name="submit" class="auth__sub" value="Войти">
 </form>
 <?php require $_SERVER['DOCUMENT_ROOT'] . '/footer.php';

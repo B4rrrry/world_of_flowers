@@ -10,6 +10,8 @@ delBtns.forEach((delBtn) => {
     let promise = fetch("/processing/delFromFavHandler.php", {
       method: "POST",
       body: searchParams,
+    }).finally(()=>{
+      location.reload()
     });
   });
 });

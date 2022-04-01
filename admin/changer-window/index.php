@@ -34,13 +34,14 @@ if (isset($_POST['add-submit'])) {
   $bName = htmlspecialchars(trim($_POST['bName']));
   $bPrice = htmlspecialchars(trim($_POST['bPrice']));
   $bPhoto = $_FILES['photo']['name'];
-
+  $bDesc = htmlspecialchars(trim($_POST['desc']));
   $db->query(
-    'INSERT INTO `boquets`(`name`,`price`,`photo`) VALUES (:name, :price, :photo)',
+    'INSERT INTO `boquets`(`name`,`price`,`photo`,`description`) VALUES (:name, :price, :photo, :description)',
     [
       'name' => $bName,
       'price' => $bPrice,
-      'photo' => $bPhoto
+      'photo' => $bPhoto,
+      'description' => $bDesc
     ]
   );
 
@@ -117,12 +118,20 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/header.php';
       <div class="col-lg-12">
         <div class="window-wrapper">
           <h2 class="add-title">Добавление товара</h2>
-          <form action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" class="form-add" method="POST">
+          <form action="<?= $_SERVER['PHP_SELF'] ?>" enctype="multipart/form-data" class="form-add" method="POST">
             <div class="select-wrapper first">
               <input type="text" name="bName" class="add-name" placeholder="Название товара" />
               <input type="text" name="bPrice" placeholder="Цена товара" class="add-knowledge" />
               <label for="photo">Фото</label>
               <input type="file" name="photo" id="photo">
+              <label for="" class="add-area-label">
+              Каждый элемент букета разделять новой строкой:
+              <br>
+              Роза
+              <br>
+              Ромашка
+                <textarea name="desc" id="desc" cols="30" rows="10" class="add-area" placeholder="Введите состав букета"></textarea>
+              </label>
               <input type="submit" name="add-submit" value="Добавить" class="add-submit" />
             </div>
           </form>

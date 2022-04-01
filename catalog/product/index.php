@@ -30,12 +30,20 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                       </p>
                     </li>
                   <?php endforeach; ?>
-                  <?php foreach ($productContent as $value) : ?>
-                    <li class="product__composition_list-item">
+                  <?php 
+                    
+                    $desc = explode("\r\n", $productData[0]["description"]);
+
+                    foreach($desc as $item) { ?>
+                      <li class="product__composition_list-item">
                       <p class="product__composition_list-text">
-                        <span></span> <?= $value['decor'] ?>
+                        <span></span> <?= $item ?>
                       </p>
                     </li>
+                    <? }
+                  ?>
+                  <?php foreach ($productContent as $value) : ?>
+                    
                   <?php endforeach; ?>
                 </ul>
                 <div class="product__price-wrap">

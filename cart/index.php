@@ -10,6 +10,7 @@ $cart = $data->getCart($_SESSION['User']['Login']);
 $count = $data->getCartCount($_SESSION['User']['Login']);
 $amount = $data->getCartAmount($_SESSION['User']['Login']);
 
+
 if (isset($_POST['orderSubmit'])) {
   $paymentMethod = 'Наличные';
   $isAnon = 'Нет';
@@ -74,7 +75,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
                 <?php foreach ($cart as $item) : ?>
                 <li class="basket-list__item">
                   <div class="basket-list__delete-btn">
-                    <span></span>
+                    <span data-boquet-id="<?=$item['boquet']?>"></span>
                   </div>
                   <img src="/assets/img/products/<?=$item['photo']?>" alt="<?=$item['name']?>" class="basket-list__img" />
                   <div class="basket-list__info">
@@ -274,5 +275,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/header.php';
     </div>
   </section>
 </main>
+<script src="../assets/js/jquery.maskedinput.min.js"></script>
+<script src="../ajax/basket.js"></script>
 <script src="/assets/js/basket.js"></script>
 <?php require $_SERVER['DOCUMENT_ROOT'] . '/footer.php';

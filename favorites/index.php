@@ -8,7 +8,7 @@ if (!isset($_SESSION['User'])) {
 $db = Db::getInstance();
 $data = new Data();
 $favs = $db->query(
-  'SELECT * FROM `getFavProds` WHERE userId = :userId',
+  'SELECT distinct * FROM `getFavProds` WHERE userId = :userId',
   [
     'userId' => $data->getUserId($_SESSION['User']['Login'])
   ]

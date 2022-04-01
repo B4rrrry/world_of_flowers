@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 20 2022 г., 22:15
--- Версия сервера: 8.0.19
--- Версия PHP: 7.4.5
+-- Время создания: Фев 22 2022 г., 13:42
+-- Версия сервера: 5.7.29
+-- Версия PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,30 +28,33 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `boquets` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `price` int NOT NULL,
+  `price` int(11) NOT NULL,
   `photo` varchar(255) DEFAULT NULL,
   `isNew` tinyint(1) DEFAULT NULL,
   `isHit` tinyint(1) DEFAULT NULL,
   `lenght` varchar(10) DEFAULT NULL,
-  `forWho` varchar(25) DEFAULT NULL
+  `forWho` varchar(25) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `boquets`
 --
 
-INSERT INTO `boquets` (`id`, `name`, `price`, `photo`, `isNew`, `isHit`, `lenght`, `forWho`) VALUES
-(1, 'Букет Нежный', 123, '1.png', 1, 1, '35см', 'Девушке'),
-(2, 'Букет Хороший', 10000, '2.png', 0, 1, '30см', NULL),
-(3, 'Букет Кайфовый', 100500, '3.png', 1, 0, '40см', 'Маме'),
-(4, 'Букет Праздничный', 4200, '4.png', 1, 1, '50см', 'Бабушке'),
-(5, 'Букет Необычный', 980, '5.png', 0, 0, '45см', 'Сестре'),
-(6, 'Букет Красивый', 2190, '6.png', 0, 0, '50см', NULL),
-(10, 'Тестовый', 9999, '444-1000x1000.jpg', NULL, NULL, NULL, NULL),
-(11, 'Отличный букетище', 10012, '5.png', NULL, NULL, NULL, NULL),
-(12, 'Отличный букетище', 10012, '5.png', NULL, NULL, NULL, NULL);
+INSERT INTO `boquets` (`id`, `name`, `price`, `photo`, `isNew`, `isHit`, `lenght`, `forWho`, `description`) VALUES
+(1, 'Букет Нежный', 123, '1.png', 1, 1, '35см', 'Девушке', 'Крафт пакет\r\nроза\r\nромашка'),
+(2, 'Букет Хороший', 10000, '2.png', 0, 1, '30см', NULL, 'Крафт пакет\r\nроза\r\nромашка'),
+(3, 'Букет Кайфовый', 100500, '3.png', 1, 0, '40см', 'Маме', 'Крафт пакет\r\nроза\r\nромашка'),
+(4, 'Букет Праздничный', 4200, '4.png', 1, 1, '50см', 'Бабушке', 'Крафт пакет\r\nроза\r\nромашка'),
+(5, 'Букет Необычный', 980, '5.png', 0, 0, '45см', 'Сестре', 'Крафт пакет\r\nроза\r\nромашка'),
+(6, 'Букет Красивый', 2190, '6.png', 0, 0, '50см', NULL, 'Крафт пакет\r\nроза\r\nромашка'),
+(10, 'Тестовый', 9999, '444-1000x1000.jpg', NULL, NULL, NULL, NULL, 'Крафт пакет\r\nроза\r\nромашка'),
+(11, 'Отличный букетище', 10012, '5.png', NULL, NULL, NULL, NULL, 'Крафт пакет\r\nроза\r\nромашка'),
+(12, 'Отличный букетище', 10012, '5.png', NULL, NULL, NULL, NULL, 'Крафт пакет\r\nроза\r\nромашка'),
+(13, 'Тест букет', 12000, '9.png', NULL, NULL, NULL, NULL, 'Роза\r\nКрафтпакет\r\nроза'),
+(14, 'Тест букет', 12000, '9.png', NULL, NULL, NULL, NULL, 'Роза\r\nТест\r\nроза');
 
 -- --------------------------------------------------------
 
@@ -60,10 +63,10 @@ INSERT INTO `boquets` (`id`, `name`, `price`, `photo`, `isNew`, `isHit`, `lenght
 --
 
 CREATE TABLE `boquet_content` (
-  `id` int NOT NULL,
-  `boquet` int NOT NULL,
-  `flower` int DEFAULT NULL,
-  `element` int DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `boquet` int(11) NOT NULL,
+  `flower` int(11) DEFAULT NULL,
+  `element` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -102,7 +105,7 @@ INSERT INTO `boquet_content` (`id`, `boquet`, `flower`, `element`) VALUES
 --
 
 CREATE TABLE `decor_elements` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -123,7 +126,7 @@ INSERT INTO `decor_elements` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `flowers` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -147,11 +150,12 @@ INSERT INTO `flowers` (`id`, `name`) VALUES
 -- (См. Ниже фактическое представление)
 --
 CREATE TABLE `getcart` (
-`login` varchar(25)
+`boquet` int(11)
+,`login` varchar(25)
 ,`name` varchar(255)
-,`price` bigint
+,`price` bigint(21)
 ,`photo` varchar(255)
-,`count` int
+,`count` int(11)
 );
 
 -- --------------------------------------------------------
@@ -161,10 +165,10 @@ CREATE TABLE `getcart` (
 -- (См. Ниже фактическое представление)
 --
 CREATE TABLE `getfavprods` (
-`id` int
-,`userId` int
+`id` int(11)
+,`userId` int(11)
 ,`name` varchar(255)
-,`price` int
+,`price` int(11)
 ,`photo` varchar(255)
 );
 
@@ -175,7 +179,7 @@ CREATE TABLE `getfavprods` (
 -- (См. Ниже фактическое представление)
 --
 CREATE TABLE `getorders` (
-`id` int
+`id` int(11)
 ,`name` varchar(30)
 ,`phone` varchar(20)
 ,`email` varchar(255)
@@ -188,7 +192,7 @@ CREATE TABLE `getorders` (
 ,`recName` varchar(30)
 ,`recPhone` varchar(20)
 ,`payment` varchar(30)
-,`amount` int
+,`amount` int(11)
 ,`userName` varchar(50)
 ,`status` varchar(25)
 );
@@ -200,7 +204,7 @@ CREATE TABLE `getorders` (
 -- (См. Ниже фактическое представление)
 --
 CREATE TABLE `getproductcontent` (
-`id` int
+`id` int(11)
 ,`flower` varchar(255)
 ,`decor` varchar(255)
 );
@@ -212,7 +216,7 @@ CREATE TABLE `getproductcontent` (
 --
 
 CREATE TABLE `newsletter` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `client_name` varchar(25) NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -233,7 +237,7 @@ INSERT INTO `newsletter` (`id`, `client_name`, `email`) VALUES
 --
 
 CREATE TABLE `orders` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -246,8 +250,8 @@ CREATE TABLE `orders` (
   `recName` varchar(30) DEFAULT NULL,
   `recPhone` varchar(20) DEFAULT NULL,
   `payment` varchar(30) DEFAULT NULL,
-  `amount` int NOT NULL,
-  `userId` int DEFAULT NULL,
+  `amount` int(11) NOT NULL,
+  `userId` int(11) DEFAULT NULL,
   `status` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -265,7 +269,7 @@ INSERT INTO `orders` (`id`, `name`, `phone`, `email`, `address`, `flat`, `date`,
 --
 
 CREATE TABLE `phone_queries` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `clientName` varchar(25) NOT NULL,
   `clientPhone` varchar(25) NOT NULL,
   `date` date NOT NULL,
@@ -278,7 +282,8 @@ CREATE TABLE `phone_queries` (
 
 INSERT INTO `phone_queries` (`id`, `clientName`, `clientPhone`, `date`, `status`) VALUES
 (1, 'тнст', 'нварвр', '2022-02-17', 'Обработан'),
-(2, '36346ы343впвпып', 'ывпывпывпып', '2022-02-17', 'Не обработан');
+(2, '36346ы343впвпып', 'ывпывпывпып', '2022-02-17', 'Обработан'),
+(3, 'testetst', 'dima', '2022-02-22', 'Не обработан');
 
 -- --------------------------------------------------------
 
@@ -287,7 +292,7 @@ INSERT INTO `phone_queries` (`id`, `clientName`, `clientPhone`, `date`, `status`
 --
 
 CREATE TABLE `users` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `login` varchar(25) NOT NULL,
   `password` varchar(64) NOT NULL,
   `name` varchar(50) NOT NULL,
@@ -309,22 +314,11 @@ INSERT INTO `users` (`id`, `login`, `password`, `name`, `access`) VALUES
 --
 
 CREATE TABLE `user_cart` (
-  `id` int NOT NULL,
-  `boquet` int NOT NULL,
-  `count` int NOT NULL,
-  `user` int NOT NULL
+  `id` int(11) NOT NULL,
+  `boquet` int(11) NOT NULL,
+  `count` int(11) NOT NULL,
+  `user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `user_cart`
---
-
-INSERT INTO `user_cart` (`id`, `boquet`, `count`, `user`) VALUES
-(5, 1, 1, 1),
-(6, 3, 1, 1),
-(7, 3, 1, 1),
-(8, 3, 1, 1),
-(9, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -333,10 +327,19 @@ INSERT INTO `user_cart` (`id`, `boquet`, `count`, `user`) VALUES
 --
 
 CREATE TABLE `user_fav` (
-  `id` int NOT NULL,
-  `user` int NOT NULL,
-  `boquet` int NOT NULL
+  `id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `boquet` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `user_fav`
+--
+
+INSERT INTO `user_fav` (`id`, `user`, `boquet`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -345,7 +348,7 @@ CREATE TABLE `user_fav` (
 --
 DROP TABLE IF EXISTS `getcart`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`127.0.0.1` SQL SECURITY DEFINER VIEW `getcart` (`login`, `name`, `price`, `photo`, `count`) AS   select `u`.`login` AS `login`,`b`.`name` AS `name`,(`b`.`price` * `uc`.`count`) AS `b.price * uc.count`,`b`.`photo` AS `photo`,`uc`.`count` AS `count` from ((`user_cart` `uc` join `boquets` `b` on((`uc`.`boquet` = `b`.`id`))) join `users` `u` on((`uc`.`user` = `u`.`id`)))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`127.0.0.1` SQL SECURITY DEFINER VIEW `getcart`  AS  select `uc`.`boquet` AS `boquet`,`u`.`login` AS `login`,`b`.`name` AS `name`,(`b`.`price` * `uc`.`count`) AS `price`,`b`.`photo` AS `photo`,`uc`.`count` AS `count` from ((`user_cart` `uc` join `boquets` `b` on((`uc`.`boquet` = `b`.`id`))) join `users` `u` on((`uc`.`user` = `u`.`id`))) ;
 
 -- --------------------------------------------------------
 
@@ -354,7 +357,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`127.0.0.1` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `getfavprods`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`127.0.0.1` SQL SECURITY DEFINER VIEW `getfavprods` (`id`, `userId`, `name`, `price`, `photo`) AS   select `b`.`id` AS `id`,`uf`.`user` AS `user`,`b`.`name` AS `name`,`b`.`price` AS `price`,`b`.`photo` AS `photo` from (`user_fav` `uf` join `boquets` `b` on((`uf`.`boquet` = `b`.`id`)))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`127.0.0.1` SQL SECURITY DEFINER VIEW `getfavprods`  AS  select `b`.`id` AS `id`,`uf`.`user` AS `userId`,`b`.`name` AS `name`,`b`.`price` AS `price`,`b`.`photo` AS `photo` from (`user_fav` `uf` join `boquets` `b` on((`uf`.`boquet` = `b`.`id`))) ;
 
 -- --------------------------------------------------------
 
@@ -363,7 +366,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`127.0.0.1` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `getorders`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`127.0.0.1` SQL SECURITY DEFINER VIEW `getorders` (`id`, `name`, `phone`, `email`, `address`, `flat`, `date`, `startTime`, `endTime`, `isAnonym`, `recName`, `recPhone`, `payment`, `amount`, `userName`, `status`) AS   select `o`.`id` AS `id`,`o`.`name` AS `name`,`o`.`phone` AS `phone`,`o`.`email` AS `email`,`o`.`address` AS `address`,`o`.`flat` AS `flat`,`o`.`date` AS `date`,`o`.`startTime` AS `startTime`,`o`.`endTime` AS `endTime`,`o`.`isAnonym` AS `isAnonym`,`o`.`recName` AS `recName`,`o`.`recPhone` AS `recPhone`,`o`.`payment` AS `payment`,`o`.`amount` AS `amount`,`u`.`name` AS `name`,`o`.`status` AS `status` from (`orders` `o` join `users` `u` on((`o`.`userId` = `u`.`id`)))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`127.0.0.1` SQL SECURITY DEFINER VIEW `getorders`  AS  select `o`.`id` AS `id`,`o`.`name` AS `name`,`o`.`phone` AS `phone`,`o`.`email` AS `email`,`o`.`address` AS `address`,`o`.`flat` AS `flat`,`o`.`date` AS `date`,`o`.`startTime` AS `startTime`,`o`.`endTime` AS `endTime`,`o`.`isAnonym` AS `isAnonym`,`o`.`recName` AS `recName`,`o`.`recPhone` AS `recPhone`,`o`.`payment` AS `payment`,`o`.`amount` AS `amount`,`u`.`name` AS `userName`,`o`.`status` AS `status` from (`orders` `o` join `users` `u` on((`o`.`userId` = `u`.`id`))) ;
 
 -- --------------------------------------------------------
 
@@ -372,7 +375,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`127.0.0.1` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `getproductcontent`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`127.0.0.1` SQL SECURITY DEFINER VIEW `getproductcontent` (`id`, `flower`, `decor`) AS   select `b`.`id` AS `id`,`f`.`name` AS `name`,`de`.`name` AS `name` from (((`boquet_content` `bc` join `boquets` `b` on((`bc`.`boquet` = `b`.`id`))) join `flowers` `f` on((`bc`.`flower` = `f`.`id`))) join `decor_elements` `de` on((`bc`.`element` = `de`.`id`)))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`127.0.0.1` SQL SECURITY DEFINER VIEW `getproductcontent`  AS  select `b`.`id` AS `id`,`f`.`name` AS `flower`,`de`.`name` AS `decor` from (((`boquet_content` `bc` join `boquets` `b` on((`bc`.`boquet` = `b`.`id`))) join `flowers` `f` on((`bc`.`flower` = `f`.`id`))) join `decor_elements` `de` on((`bc`.`element` = `de`.`id`))) ;
 
 --
 -- Индексы сохранённых таблиц
@@ -454,61 +457,61 @@ ALTER TABLE `user_fav`
 -- AUTO_INCREMENT для таблицы `boquets`
 --
 ALTER TABLE `boquets`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT для таблицы `boquet_content`
 --
 ALTER TABLE `boquet_content`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `decor_elements`
 --
 ALTER TABLE `decor_elements`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `flowers`
 --
 ALTER TABLE `flowers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `newsletter`
 --
 ALTER TABLE `newsletter`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `phone_queries`
 --
 ALTER TABLE `phone_queries`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `user_cart`
 --
 ALTER TABLE `user_cart`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT для таблицы `user_fav`
 --
 ALTER TABLE `user_fav`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

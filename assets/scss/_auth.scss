@@ -1,0 +1,27 @@
+.auth {
+  &__form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-top: 200px;
+  }
+  &__label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  &__login {
+    padding: 10px ;
+    margin-bottom: 10px;
+  }
+  &__pass {
+    padding: 10px ;
+    margin-bottom: 10px;
+  }
+  &__sub {
+    padding: 10px;
+    color:#fff;
+    background-color: #000;
+    border:0;
+  }
+}
